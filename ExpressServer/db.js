@@ -1,16 +1,26 @@
+require('dotenv').config()
 const Pool = require("pg").Pool;
 
-const pool = new Pool({
-    user:"",
-    password: "",
-    database: "",
-    port: 5432,
-    host: "",
+const pool_users = new Pool({
+    user: process.env.POSTGRESQL_USER_USERS,
+    password: process.env.POSTGRESQL_PASSWORD_USERS,
+    database: process.env.POSTGRESQL_DATABASE_USERS,
+    port: parseInt(process.env.POSTGRESQL_PORT_USERS),
+    host: process.env.POSTGRESQL_HOST_USERS,
+    ssl: { rejectUnauthorized: false }
+});
+
+const pool_plants = new Pool({
+    user: process.env.POSTGRESQL_USER_PLANTS,
+    password: process.env.POSTGRESQL_PASSWORD_PLANTS,
+    database: process.env.POSTGRESQL_DATABASE_PLANTS,
+    port: parseInt(process.env.POSTGRESQL_PORT_PLANTS),
+    host: process.env.POSTGRESQL_HOST_PLANTS,
     ssl: { rejectUnauthorized: false }
 });
 
 //Solution to: Error acquiring client Error: self signed certificate
 // => https://stackoverflow.com/a/61125814
 
-module.exports = pool;
+module.exports = {pool_users, pool_plants};
 
