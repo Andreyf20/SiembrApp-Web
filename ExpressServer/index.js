@@ -1,7 +1,8 @@
 const express = require('express')
 var morgan = require('morgan')
 const cors = require('cors')
-const {pool_users, pool_plants} = require("./db")
+const {pool_users, pool_plants} = require("./imports/db")
+const hash_sp_password = require("./imports/hashing")
 const app = express()
 
 // App
@@ -12,7 +13,12 @@ app.use(express.json());
 
 app.get("/api/login",async(req,res) =>{
   const correo = req.body.correo;
-  const contrasenna = req.body.contrasenna;
+  const contrasenna = hash_sp_password(req.body.contrasenna);
+
+
+  const query = `select splogin(
+    '${correo}' :: varchar,
+    '${contrasenna}' :: varchar);`;
   
   pool_users.connect((err, client, release) => {
     if (err) {
@@ -21,14 +27,14 @@ app.get("/api/login",async(req,res) =>{
     }
     
     // TODO: Cambiar eso por el SP cuando se actualice lo del hash del password
-    client.query(`SELECT correo from users WHERE correo = '${correo}' and contrasenna = '${contrasenna}'`, (err, result) => {
+    client.query(query, (err, result) => {
       release()
       if (err) {
         res.sendStatus(500);
         return console.error('Error executing query', err.stack)
       }
       
-      if(result.rowCount > 0) res.status(200).send({'ok': '1'});
+      if(result.rows[0].splogin === true) res.status(200).send({'ok': '1'});
       else res.status(200).send({'ok': '0'});
     })
   })
@@ -38,12 +44,11 @@ app.post("/api/register_user",async(req,res) =>{
   const user = {
     nombre : req.body.nombre,
     correo : req.body.correo,
-    contrasenna : req.body.contrasenna,
+    contrasenna : hash_sp_password(req.body.contrasenna),
     trabajaasada : req.body.trabajaasada,
     ubicacion : req.body.ubicacion
   }
 
-  // TODO: SP O FUNCTION?????
   const query = `select spcrearusuario(
     '${user.nombre}' :: varchar,
     '${user.correo}' :: varchar,
@@ -51,7 +56,6 @@ app.post("/api/register_user",async(req,res) =>{
     ${user.trabajaasada} :: boolean,
     '${user.ubicacion}' :: varchar);`;
 
-  
   pool_users.connect((err, client, release) => {
     if (err) {
       res.sendStatus(500);
@@ -70,7 +74,6 @@ app.post("/api/register_user",async(req,res) =>{
     })
   })
 })
-
 
 var port = 5000;
 
