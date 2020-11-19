@@ -40,13 +40,10 @@ app.get("/api/login",async(req,res) =>{
   })
 })
 
-app.get("/api/ver_plantas/:nombreComun",async(req,res) =>{
-  const nombreComun: string = req.params.nombreComun;
+app.get("/api/ver_plantas/:filtro",async(req,res) =>{
+  const filtro: string = req.params.filtro;
 
-  // TODO: revisar aqui lo del function que devuelve los datos muy desordenados
-  //const query: string = `select spVerTodasPlantas('${nombreComun}')`;
-
-  const query: string = `select * from plantas;`
+  const query: string = `select * from spverplantas('${filtro}')`;
   
   pool_plants.connect((err, client, release) => {
     if (err) {
