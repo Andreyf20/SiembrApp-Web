@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get("/api/login",async(req,res) =>{
+app.post("/api/login",async(req,res) =>{
   const correo: string = req.body.correo;
   const contrasenna: string = hash_sp_password(req.body.contrasenna);
 
@@ -65,14 +65,14 @@ app.get("/api/ver_plantas/:filtro",async(req,res) =>{
 
 app.post("/api/register_user",async(req,res) =>{
 
-  const user: User = new User(req.body.nombre, req.body.correo, hash_sp_password(req.body.contrasenna), eval(req.body.trabajaasada), req.body.ubicacion);
+  const user: User = new User(req.body.nombre, req.body.correo, hash_sp_password(req.body.contrasenna), req.body.tipoOrganizacion,req.body.razon);
 
   const query: string = `select spcrearusuario(
     '${user.nombre}' :: varchar,
     '${user.correo}' :: varchar,
     '${user.contrasenna}' :: varchar,
-    ${user.trabajaasada} :: boolean,
-    '${user.ubicacion}' :: varchar);`;
+    '${user.tipoOrganizacion}' :: varchar,
+    '${user.razon}' :: varchar);`;
 
   pool_users.connect((err, client, release) => {
     if (err) {
@@ -194,7 +194,24 @@ app.post("/api/agregar_metododispersion",async(req,res) =>{
 })
 
 app.post("/api/agregar_planta",async(req,res) =>{
-  const planta: Plant = new Plant(req.body.nombreComun, req.body.nombreCientifico, req.body.origen, parseInt(req.body.minRangoAltitudinal), parseInt(req.body.maxRangoAltitudinal), parseInt(req.body.metros), req.body.requerimientosDeLuz, req.body.habito, req.body.familia, req.body.fenologia, req.body.agentePolinizador, req.body.metodoDispersion, req.body.frutos, req.body.texturaFruto, req.body.flor, req.body.usosConocidos, req.body.paisajeRecomendado);
+  const planta: Plant = new Plant(
+    req.body.nombreComun,
+    req.body.nombreCientifico,
+    req.body.origen,
+    parseInt(req.body.minRangoAltitudinal),
+    parseInt(req.body.maxRangoAltitudinal),
+    parseInt(req.body.metros), 
+    req.body.requerimientosDeLuz, 
+    req.body.habito, 
+    req.body.familia, 
+    req.body.fenologia, 
+    req.body.agentePolinizador, 
+    req.body.metodoDispersion, 
+    req.body.frutos, 
+    req.body.texturaFruto, 
+    req.body.flor, 
+    req.body.usosConocidos, 
+    req.body.paisajeRecomendado);
 
   const query: string = `select spagregarplanta(
     '${planta.nombreComun}' :: varchar,
