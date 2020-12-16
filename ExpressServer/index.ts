@@ -21,7 +21,7 @@ app.post("/api/login",async(req,res) =>{
   const query: string = `select splogin(
     '${correo}' :: varchar,
     '${contrasenna}' :: varchar);`;
-
+  
   pool_users.connect((err, client, release) => {
     if (err) {
       res.sendStatus(500);
@@ -37,6 +37,54 @@ app.post("/api/login",async(req,res) =>{
       
       if(result.rows[0].splogin === true) res.status(200).send({'ok': '1'});
       else res.status(200).send({'ok': '0'});
+    })
+  })
+})
+
+
+app.post("/api/getUserInfo",async(req,res) =>{
+  const correo: string = req.body.correo;
+
+  const query: string = `select correo,nombre,uuid from spGetUserInfo('${correo}');`;
+  
+  pool_users.connect((err, client, release) => {
+    if (err) {
+      res.sendStatus(500);
+      return console.error('Error acquiring client', err.stack)
+    }
+    
+    client.query(query, (err, result) => {
+      release()
+      if (err) {
+        res.sendStatus(500);
+        return console.error('Error executing query', err.stack)
+      }
+      
+
+      res.status(200).send(result.rows[0]);
+
+    })
+  })
+})
+
+app.post("/api/getid",async(req,res) =>{
+  const uuid: string = req.body.uuid;
+
+  const query: string = `SELECT spGetUserIdwithUUID('${uuid}') as id;`;
+  
+  pool_users.connect((err, client, release) => {
+    if (err) {
+      res.sendStatus(500);
+      return console.error('Error acquiring client', err.stack)
+    }
+    
+    client.query(query, (err, result) => {
+      release()
+      if (err) {
+        res.sendStatus(500);
+        return console.error('Error executing query', err.stack)
+      }
+      res.status(200).send(result.rows[0]);
     })
   })
 })
