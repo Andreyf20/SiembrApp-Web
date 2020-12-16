@@ -13,14 +13,15 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get("/api/login",async(req,res) =>{
+app.post("/api/login",async(req,res) =>{
   const correo: string = req.body.correo;
+
   const contrasenna: string = hash_sp_password(req.body.contrasenna);
 
   const query: string = `select splogin(
     '${correo}' :: varchar,
     '${contrasenna}' :: varchar);`;
-  
+
   pool_users.connect((err, client, release) => {
     if (err) {
       res.sendStatus(500);
