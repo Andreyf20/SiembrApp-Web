@@ -300,6 +300,48 @@ app.post("/api/agregar_planta",async(req,res) =>{
   })
 })
 
+app.post("/api/getPlantasDeUsuario",async(req,res) =>{
+  const id: string = req.body.id;
+
+  const query: string = `SELECT 
+                familia,
+                fenologia,
+                polinizador,
+                metododispersion,
+                nombrecomun,
+                nombrecientifico,
+                origen,
+                minRangoaltitudinal,
+                maxRangoaltitudinal,
+                metros,
+                requerimientosdeluz,
+                habito,
+                frutos,
+                texturafruto,
+                flor,
+                usosconocidos,
+                paisajerecomendado
+                from spGetPlantasXUsuario(${id})`;
+
+  pool_plants.connect((err, client, release) => {
+    if (err) {
+      res.sendStatus(500);
+      return console.error('Error acquiring client', err.stack)
+    }
+    
+    client.query(query, (err, result) => {
+      release()
+      if (err) {
+        res.sendStatus(500);
+        return console.error('Error executing query', err.stack)
+      }
+      
+      res.status(200).send(result.rows);
+      
+    })
+  })
+})
+
 var port = 5000;
 
 app.listen(port, () => console.log(`Api listening on port ${port}!`))
