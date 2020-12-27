@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer } from '@angular/platform-browser';
+import { SessionService } from 'src/app/services/session/session.service';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +13,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class HomeComponent implements OnInit {
 
   constructor(
+    private snackBar: MatSnackBar,
     private iconRegistry: MatIconRegistry,
     private sanitizer: DomSanitizer,
   ) {
@@ -22,10 +25,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
 
-  logout(){
-    
-  }
+    this.snackBar.open('Bienvenido ' + SessionService.getLoggedUser().nombre, 'OK', { duration: 1000, });
 
+  }
 }

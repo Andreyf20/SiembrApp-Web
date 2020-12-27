@@ -1,3 +1,4 @@
+import { SessionService } from './services/session/session.service';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { RequestService } from './services/request/request.service';
@@ -52,7 +53,8 @@ import { HomeComponent } from './home/home/home.component';
   providers: [
 
     Title,
-    RequestService
+    RequestService,
+    SessionService
 
   ],
   bootstrap: [AppComponent]

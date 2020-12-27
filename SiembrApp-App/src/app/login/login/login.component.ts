@@ -1,15 +1,18 @@
+import { Observable } from 'rxjs';
+import { SessionService } from './../../services/session/session.service';
 import { RequestService } from './../../services/request/request.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   correoInput = '';
   loginSubscription: any;
@@ -22,6 +25,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.setTitle('Inicio de sesión');
+    SessionService.setLoggedUser(null);
+  }
+
+  ngOnDestroy(): void {
+    this.loginSubscription.unsubscribe();
   }
 
   public setTitle( newTitle: string): void {
@@ -39,9 +47,17 @@ export class LoginComponent implements OnInit {
 
     this.loginSubscription = this.requestService.login(this.correoInput, pass).subscribe( success => {
 
-      if(success){
+      if (success){
 
-        this.router.navigateByUrl('/home');
+        //Fetch User info
+
+        this.requestService.getUserInfo(this.correoInput).subscribe(user => {
+
+          SessionService.setLoggedUser(user);
+
+          this.router.navigateByUrl('/home');
+        });
+
 
       }
       else{
@@ -49,14 +65,6 @@ export class LoginComponent implements OnInit {
       }
 
     });
-  }
-
-  ngOnDestroy(): void {
-
-    // Called once, before the instance is destroyed.
-    // Add 'implements OnDestroy' to the class.
-
-    this.loginSubscription.unsubscribe();
   }
 
 }
