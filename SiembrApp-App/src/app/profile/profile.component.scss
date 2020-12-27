@@ -38,4 +38,54 @@ header{
         margin: auto;
  
     }
+
+}
+
+.card{
+    
+    display: block;
+    margin: 5% auto 5% auto;
+    max-width: 800px;
+    min-height: 300px;
+    max-height: fit-content;
+    text-align: start;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+
+    .title{
+
+        height: fit-content;
+        min-height: 40px;
+        display: block;
+
+        padding: 50px 4% 20px 4%;
+
+        font-size: 64px;
+        font-weight: 500;
+        color: color(main);
+    }
+
+    .lbl{
+
+        height: 10%;
+        min-height: 30px;
+        display: block;
+
+        padding: 20px 4% 20px 4%;
+
+        font-size: 30px;
+        color: color(main);
+        
+    }
+    
+    .val{
+        
+        height: 10%;
+        padding: 20px 4% 20px 4%;
+        min-height: 30px;
+        display: block;
+        font-size: 24px;
+        
+    }
+    
 }

@@ -16,9 +16,27 @@
     <a mat-button class="anchor" routerLink="/login">
         <mat-icon svgIcon="logout" class="btn-icon"></mat-icon>
     </a>
-    
-    <a mat-button class="anchor" routerLink="/profile">
-        <mat-icon svgIcon="profile" class="btn-icon"></mat-icon>
-    </a>
 
 </header>
+
+<div class="card">
+
+    <label class="title">Perfil</label>
+    
+    <label class="lbl">Nombre</label>
+
+    <label class="val">{{user.nombre}}</label>
+
+    <label class="lbl">E-mail</label>
+
+    <label class="val">{{user.correo}}</label>
+
+    <label class="lbl">Tipo de organización</label>
+
+    <label class="val">{{user.nombretipoorganizacion}}</label>
+
+    <label class="lbl">Razón</label>
+
+    <label class="val">{{user.razon}}</label>
+
+</div>
