@@ -8,10 +8,18 @@ color($color){
 $width : 80%;
 
 header{
-    
+
     background-color: color(main);
     min-height: 60px;
     height: 100%;
+
+    .btn-icon{
+            
+        min-height: 60px;
+        text-align: center;
+        fill: white
+
+    }
 
     .anchor{
 
@@ -20,15 +28,14 @@ header{
         float: right;
         margin: auto;
 
-        .btn-icon{
-            
-            min-height: 60px;
-            text-align: center;
-            path{
-                fill:  rgba(#ffffff,  1);
-            }
-        }
+    }
     
+    .anchorBack{
+
+        width: 60px;
+        height: 100%;
+        float: left;
+        margin: auto;
+ 
     }
 }
-

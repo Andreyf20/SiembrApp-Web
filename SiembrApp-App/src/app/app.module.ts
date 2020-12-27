@@ -25,12 +25,14 @@ import { MatTabsModule } from '@angular/material/tabs';
 // Components
 import { LoginComponent } from './login/login/login.component';
 import { HomeComponent } from './home/home/home.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

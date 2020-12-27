@@ -24,8 +24,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit(): void {
+
     this.setTitle('Inicio de sesión');
     SessionService.setLoggedUser(null);
+
   }
 
   ngOnDestroy(): void {
@@ -49,7 +51,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
       if (success){
 
-        //Fetch User info
+        // Fetch User info
 
         this.requestService.getUserInfo(this.correoInput).subscribe(user => {
 
