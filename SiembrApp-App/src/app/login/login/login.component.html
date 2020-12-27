@@ -1,0 +1,26 @@
+<div id="loginFormCard" class ="card" (keypress.enter)="loginBtnOnClick(pass.value)">
+    
+    <br/>
+
+    <img id="logo" src="/assets/res/Siembrapp_logo.png">
+
+    <label id="loginLbl">SiembrApp</label>
+
+    <div style="margin-top: 30px">
+       
+        <mat-form-field class="loginField">
+            <mat-label class="matLabel">Correo</mat-label>
+            <input matInput class="inputField" [(ngModel)] = "correoInput">
+        </mat-form-field>
+        
+        <br/>
+
+        <mat-form-field class="loginField">
+            <mat-label class="matLabel">Contraseña</mat-label>
+            <input #pass matInput class="inputField" [type]="'password'">
+        </mat-form-field>
+
+        <button mat-raised-button (click)="loginBtnOnClick(pass.value)">Ingresar</button>
+        
+    </div>
+</div>
