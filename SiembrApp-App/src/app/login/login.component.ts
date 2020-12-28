@@ -1,11 +1,9 @@
-import { Observable } from 'rxjs';
-import { SessionService } from './../../services/session/session.service';
-import { RequestService } from './../../services/request/request.service';
+import { SessionService } from './../services/session/session.service';
+import { RequestService } from './../services/request/request.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-login',

@@ -1,0 +1,13 @@
+<div class="buttonsDiv">
+
+    <button mat-button class="viverosBtn" [disabled]="executing != 0 && executing != -1" (click) = "changeExecutionMode(0)"> Agregar viveros </button>
+
+    <button mat-button class="viverosBtn" [disabled]="executing != 1 && executing != -1" (click) = "changeExecutionMode(1)"> Modificar viveros </button>
+
+    <button mat-button class="viverosBtn" [disabled]="executing != 2 && executing != -1" (click) = "changeExecutionMode(2)"> Eliminar viveros </button>
+
+    <button mat-button class="cancelBtn" *ngIf="executing != -1" (click) = "changeExecutionMode(-1)"> Cancelar </button>
+
+</div>
+
+<router-outlet></router-outlet>

@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from 'src/app/models/User';
+import { Vivero } from 'src/app/models/Vivero';
 
 @Injectable({
   providedIn: 'root'
@@ -56,5 +57,22 @@ export class RequestService {
 
         return loggedUser;
       }));
+  }
+
+  public getViveros(): Observable<Vivero[]> {
+
+    const url = AppSettings.APIURl + 'listViveros';
+
+    const observable: Observable<any> = this.http.get(url);
+
+    return observable.pipe(
+
+      map( res => {
+
+        const viverosList = res.viveros;
+        return viverosList;
+
+      })
+    );
   }
 }

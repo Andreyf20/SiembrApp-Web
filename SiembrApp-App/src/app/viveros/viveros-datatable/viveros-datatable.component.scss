@@ -1,0 +1,39 @@
+@import '/src/styles';
+
+@function
+color($color){
+    @return map-get($mat-primary,$color)
+}
+
+$width : 80%;
+
+.buttonsDiv{
+
+    .viverosBtn{
+        
+        margin: 1%;
+        background-color: color(lighter);
+        display: inline-block;
+
+    }
+
+    .cancelBtn{
+
+        margin: 1%;
+        background-color: color(lighter);
+        display: inline-block;
+        background-color: map-get($mat-warn,main);
+        color: white;
+    }
+
+}
+
+tr{
+    :hover{
+        cursor: pointer;
+    }
+}
+
+div{
+    padding: 10px;
+}

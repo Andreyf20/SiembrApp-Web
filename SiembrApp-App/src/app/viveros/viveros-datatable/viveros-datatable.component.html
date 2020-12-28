@@ -1,0 +1,18 @@
+<div>
+
+  <table datatable [dtTrigger]="dtTrigger" class="row-border hover">
+  <thead>
+      <tr style="text-align: left">
+          <th>Nombre</th>
+          <th>Dirección</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let vivero of viveros" (click) ="click(vivero.nombre)">
+        <td>{{vivero.nombre}}</td>
+        <td>{{vivero.direccion}}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
