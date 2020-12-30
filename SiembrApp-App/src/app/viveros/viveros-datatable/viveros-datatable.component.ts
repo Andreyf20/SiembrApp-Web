@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { Vivero } from 'src/app/models/Vivero';
 import { RequestService } from 'src/app/services/request/request.service';
@@ -11,11 +12,13 @@ import { RequestService } from 'src/app/services/request/request.service';
 export class ViverosDatatableComponent implements OnInit, OnDestroy {
 
   public viveros: Vivero[];
+  private parentURL = '/home';
 
   dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(
     private requestService: RequestService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -40,8 +43,10 @@ export class ViverosDatatableComponent implements OnInit, OnDestroy {
     this.dtTrigger.unsubscribe();
   }
 
-  click(name: string): void{
-    console.log(name);
+  rowClick(targetVivero: Vivero): void{
+    console.log('Vivero =>' + targetVivero.nombre);
+    // Send object through queryParams ref: https://stackoverflow.com/a/52253395
+    this.router.navigate([this.parentURL + '/detalles'], { queryParams: { ...targetVivero }} );
   }
 
 }

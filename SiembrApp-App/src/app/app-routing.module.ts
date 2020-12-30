@@ -1,3 +1,4 @@
+import { DetallesModificarViveroComponent } from './viveros/detalles-modificar-vivero/detalles-modificar-vivero.component';
 import { CrearViverosComponent } from './viveros/crear-viveros/crear-viveros.component';
 import { ViverosDatatableComponent } from './viveros/viveros-datatable/viveros-datatable.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -14,8 +15,9 @@ const routes: Routes = [
 
   { path: 'home', component: HomeComponent, children: [
 
-      { path: 'listaViveros', component: ViverosDatatableComponent },
-      { path: 'crearVivero', component: CrearViverosComponent }
+    { path: 'crearVivero', component: CrearViverosComponent },
+    { path: 'listaViveros', component: ViverosDatatableComponent},
+    { path: 'detalles', component: DetallesModificarViveroComponent }
 
   ]}
 

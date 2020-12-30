@@ -38,6 +38,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ViverosDatatableComponent } from './viveros/viveros-datatable/viveros-datatable.component';
 import { CrearViverosComponent } from './viveros/crear-viveros/crear-viveros.component';
+import { DetallesModificarViveroComponent } from './viveros/detalles-modificar-vivero/detalles-modificar-vivero.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { CrearViverosComponent } from './viveros/crear-viveros/crear-viveros.com
     ViverosComponent,
     PlantasComponent,
     ViverosDatatableComponent,
-    CrearViverosComponent
+    CrearViverosComponent,
+    DetallesModificarViveroComponent
   ],
   imports: [
     BrowserModule,

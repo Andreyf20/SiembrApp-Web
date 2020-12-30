@@ -1,0 +1,31 @@
+<div class="detallesDiv">
+       
+    <mat-form-field class="detallesViveroField">
+        <mat-label class="matLabel">Vivero</mat-label>
+        <input matInput class="inputField" [(ngModel)] = "nombre" readonly>
+    </mat-form-field>
+    
+    <br/>
+
+    <mat-form-field class="detallesViveroField">
+        <mat-label class="matLabel">Dirección</mat-label>
+        <textarea matInput class="inputField" [(ngModel)] = "direccion"></textarea>
+    </mat-form-field>
+
+    <br/>
+    
+    <mat-form-field class="detallesViveroField">
+        <mat-label class="matLabel">Teléfonos</mat-label>
+        <textarea matInput class="inputField" [(ngModel)] = "telefonos"></textarea>
+    </mat-form-field>
+    
+    <br/>
+    
+    <mat-form-field class="detallesViveroField">
+        <mat-label class="matLabel">Horarios</mat-label>
+        <textarea matInput class="inputField" [(ngModel)] = "horarios"></textarea>
+    </mat-form-field>
+
+    <button mat-button class="modificarBtn" (click)="actualizarDatosVivero()">Actualizar información</button>
+
+</div>

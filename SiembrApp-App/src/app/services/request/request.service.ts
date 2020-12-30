@@ -76,6 +76,13 @@ export class RequestService {
     );
   }
 
+  /**
+   * Request para agregar un vivero
+   * @param nombre
+   * @param direccion 
+   * @param telefonos 
+   * @param horarios 
+   */
   public addVivero(nombre: string, direccion: string, telefonos: string, horarios: string): Observable<boolean>{
 
     const url = AppSettings.APIURL + 'agregarVivero';
@@ -95,4 +102,23 @@ export class RequestService {
       ));
   }
 
+  public modificarDatosVivero(nombre: string, direccion: string, telefonos: string, horarios: string): Observable<boolean>{
+
+    const url = AppSettings.APIURL + 'actualizarInfoVivero';
+
+    const payload = {
+      nombre,
+      direccion: (direccion.length !== 0 ? direccion : 'NO INDICA'),
+      telefonos: (telefonos.length !== 0 ? telefonos : 'NO INDICA'),
+      horarios: (horarios.length !== 0 ? horarios : 'NO INDICA')
+    };
+
+    console.log(payload);
+
+    return this.http.post(url, payload).pipe(
+       map(
+         res => (Object.values(res)[0] === true)
+      ));
+
+  }
 }
