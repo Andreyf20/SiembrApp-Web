@@ -56,7 +56,7 @@ export class DetallesModificarViveroComponent implements OnInit {
 
       if (res){
         this.snackBar.open('Se han modificado los datos del vivero con éxito', 'Entendido', { duration: 5000, });
-        this.router.navigateByUrl('home/listaViveros');
+        this.router.navigateByUrl('/');
         return;
       }else{
         this.snackBar.open('Ocurrió un error', 'Entendido', { duration: 5000, });
@@ -67,6 +67,5 @@ export class DetallesModificarViveroComponent implements OnInit {
     }else{
       this.snackBar.open('No se actualizaron los datos', 'Entendido', { duration: 2000 });
     }
-
   }
 }

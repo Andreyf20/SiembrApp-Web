@@ -7,25 +7,19 @@ color($color){
 
 $width : 80%;
 
-.buttonsDiv{
 
-    .viverosBtn{
-        
-        margin: 1%;
-        background-color: color(lighter);
-        display: inline-block;
+.eliminateTd{
+    padding: 0%;
+    
+    .eliminateBtn{
 
-    }
-
-    .cancelBtn{
-
-        margin: 1%;
-        background-color: color(lighter);
-        display: inline-block;
-        background-color: map-get($mat-warn,main);
+        height: 100%;
+        width: 100%;
+        border-radius: 0%;
+        background-color: map-get($mat-warn , main );
         color: white;
-    }
 
+    }
 }
 
 tr{

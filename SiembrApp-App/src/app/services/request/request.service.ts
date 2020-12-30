@@ -113,12 +113,24 @@ export class RequestService {
       horarios: (horarios.length !== 0 ? horarios : 'NO INDICA')
     };
 
-    console.log(payload);
-
     return this.http.post(url, payload).pipe(
        map(
          res => (Object.values(res)[0] === true)
-      ));
+      )
+    );
+  }
+
+  public eliminarVivero(nombre: string): Observable<boolean>{
+    const url = AppSettings.APIURL + 'eliminarVivero';
+
+    const payload = { nombre };
+
+    return this.http.post(url, payload).pipe(
+      map(
+        res => (Object.values(res)[0] === true)
+     )
+   );
 
   }
+
 }

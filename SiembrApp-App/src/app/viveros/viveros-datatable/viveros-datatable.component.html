@@ -5,12 +5,16 @@
       <tr style="text-align: left">
           <th>Nombre</th>
           <th>Dirección</th>
+          <th></th>
       </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let vivero of viveros" (click) ="rowClick(vivero)">
-        <td>{{vivero.nombre}}</td>
-        <td>{{vivero.direccion}}</td>
+      <tr *ngFor="let vivero of viveros">
+        <td  (click) ="rowClick(vivero)">{{vivero.nombre}}</td>
+        <td  (click) ="rowClick(vivero)">{{vivero.direccion}}</td>
+        <td class="eliminateTd">
+          <button mat-button class="eliminateBtn" (click)="eliminar(vivero.nombre)">Eliminar</button>
+        </td>
       </tr>
     </tbody>
   </table>

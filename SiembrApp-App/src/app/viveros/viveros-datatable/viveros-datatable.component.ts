@@ -1,3 +1,4 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -18,7 +19,8 @@ export class ViverosDatatableComponent implements OnInit, OnDestroy {
 
   constructor(
     private requestService: RequestService,
-    private router: Router
+    private router: Router,
+    private snackbar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -47,6 +49,28 @@ export class ViverosDatatableComponent implements OnInit, OnDestroy {
     console.log('Vivero =>' + targetVivero.nombre);
     // Send object through queryParams ref: https://stackoverflow.com/a/52253395
     this.router.navigate([this.parentURL + '/detalles'], { queryParams: { ...targetVivero }} );
+  }
+
+  eliminar(nombre: string): void{
+    const confirm = prompt(`¿Está seguro de eliminar el vivero ${nombre}? (Digite "${nombre}" para confirmar)`);
+
+    if (confirm === nombre){
+      // Enviar al servicio que hace requests al API
+      this.requestService.eliminarVivero(nombre).subscribe( res => {
+
+        if (res){
+          this.router.navigateByUrl('/listaViveros');
+          this.snackbar.open(`${nombre} eliminado exitosamente`, 'Entendido', { duration: 3000 });
+          location.reload();
+          return;
+        }else{
+          this.snackbar.open(`Ocurrió un error en la eliminación de ${nombre}`, 'Entendido', { duration: 5000, });
+        }
+      });
+
+    }else{
+      this.snackbar.open(`No se eliminó ${nombre}`, 'Entendido', { duration: 3000 });
+    }
   }
 
 }
