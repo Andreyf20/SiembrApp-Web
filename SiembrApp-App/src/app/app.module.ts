@@ -9,7 +9,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material
 
@@ -22,7 +22,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatStepperModule } from '@angular/material/stepper';
 
+// DataTable
 import { DataTablesModule } from 'angular-datatables';
 
 // Components
@@ -35,6 +37,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ViverosDatatableComponent } from './viveros/viveros-datatable/viveros-datatable.component';
+import { CrearViverosComponent } from './viveros/crear-viveros/crear-viveros.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { ViverosDatatableComponent } from './viveros/viveros-datatable/viveros-d
     ProfileComponent,
     ViverosComponent,
     PlantasComponent,
-    ViverosDatatableComponent
+    ViverosDatatableComponent,
+    CrearViverosComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +58,7 @@ import { ViverosDatatableComponent } from './viveros/viveros-datatable/viveros-d
     RouterModule,
     DataTablesModule,
     FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
@@ -65,7 +70,8 @@ import { ViverosDatatableComponent } from './viveros/viveros-datatable/viveros-d
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatStepperModule
   ],
   providers: [
 

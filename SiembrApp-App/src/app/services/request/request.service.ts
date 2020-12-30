@@ -18,7 +18,7 @@ export class RequestService {
   // Ref: Return observables: https://stackoverflow.com/a/39615116
   public login(correo: string, pass: string): Observable<boolean>{
 
-    const url = AppSettings.APIURl + 'login';
+    const url = AppSettings.APIURL + 'login';
 
     const payload = {correo, contrasenna: pass};
 
@@ -28,7 +28,7 @@ export class RequestService {
 
   public getUserInfo(correo: string): Observable<User>{
 
-    const url = AppSettings.APIURl + 'getUserInfo';
+    const url = AppSettings.APIURL + 'getUserInfo';
 
     const payload = {correo};
 
@@ -61,7 +61,7 @@ export class RequestService {
 
   public getViveros(): Observable<Vivero[]> {
 
-    const url = AppSettings.APIURl + 'listViveros';
+    const url = AppSettings.APIURL + 'listViveros';
 
     const observable: Observable<any> = this.http.get(url);
 
@@ -75,4 +75,24 @@ export class RequestService {
       })
     );
   }
+
+  public addVivero(nombre: string, direccion: string, telefonos: string, horarios: string): Observable<boolean>{
+
+    const url = AppSettings.APIURL + 'agregarVivero';
+
+    const payload = {
+      nombreVivero: nombre,
+      direccion,
+      telefonos: (telefonos.length !== 0 ? telefonos : 'NO INDICA'),
+      horarios: (horarios.length !== 0 ? horarios : 'NO INDICA')
+    };
+
+    console.log(payload);
+
+    return this.http.post(url, payload).pipe(
+       map(
+         res => (Object.values(res)[0] === true)
+      ));
+  }
+
 }
