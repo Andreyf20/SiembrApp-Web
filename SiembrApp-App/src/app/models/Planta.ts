@@ -1,20 +1,21 @@
 export interface Planta{
 
-    nombreComun: string;
-    nombreCientifico: string;
+    nombrecomun: string;
+    nombrecientifico: string;
     familia: string;
     origen: string;
     fenologia: string;
-    agentePolinizador: string;
-    requerimientosDeLuz: string;
-    metodoDispersion: string;
-    fruto: string;
-    texturaFruto: string;
+    polinizador: string;
+    requerimientosdeluz: string;
+    metododispersion: string;
+    frutos: string;
+    texturafruto: string;
     flor: string;
     habito: string;
-    usosConocidos;paisajeRecomendado: Array<String>;
-    minRangoAltitudinal: number;
-    maxRangoAltitudinal: number;
+    usosconocidos: string;
+    paisajerecomendado: string;
+    minrangoaltitudinal: number;
+    maxrangoaltitudinal: number;
     metros: number;
 
 }

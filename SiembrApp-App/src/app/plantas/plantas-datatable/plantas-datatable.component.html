@@ -1,0 +1,23 @@
+<div>
+
+  <table datatable [dtTrigger]="dtTrigger" class="row-border hover">
+  <thead>
+      <tr style="text-align: left">
+          <th>Nombre común</th>
+          <th>Nombre científico</th>
+          <th>Familia</th>
+          <th>Fenología</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let planta of plantas" (click) ="rowClick(planta)">
+        <td>{{planta.nombrecomun}}</td>
+        <td>{{planta.nombrecientifico}}</td>
+        <td>{{planta.familia}}</td>
+        <td>{{planta.fenologia}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+  

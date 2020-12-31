@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from 'src/app/models/User';
 import { Vivero } from 'src/app/models/Vivero';
+import { Planta } from 'src/app/models/Planta';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,9 @@ export class RequestService {
   constructor(private http: HttpClient) {
 
   }
+
+
+  // Usuario
 
   // Ref: Return observables: https://stackoverflow.com/a/39615116
   public login(correo: string, pass: string): Observable<boolean>{
@@ -58,6 +62,8 @@ export class RequestService {
         return loggedUser;
       }));
   }
+
+  // Viveros
 
   public getViveros(): Observable<Vivero[]> {
 
@@ -133,4 +139,23 @@ export class RequestService {
 
   }
 
+  // Plantas
+
+  public getPlantas(): Observable<Planta[]>{
+
+    const url = AppSettings.APIURL + 'ver_plantas/*';
+
+    const observable: Observable<any> = this.http.get(url);
+
+    return observable.pipe(
+
+      map( res => {
+
+        const plantasList = res;
+        return plantasList;
+
+      })
+    );
+
+  }
 }

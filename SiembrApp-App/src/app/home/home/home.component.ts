@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private iconRegistry: MatIconRegistry,
     private sanitizer: DomSanitizer,
+    private router: Router
   ) {
 
     this.iconRegistry.addSvgIcon(
@@ -31,4 +33,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+  onTabChanged(): void{
+    console.log("Tab changed");
+    this.router.navigateByUrl('home');
+  }
+
 }

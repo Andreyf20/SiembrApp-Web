@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-viveros',
-  templateUrl: './viveros.component.html',
-  styleUrls: ['./viveros.component.scss']
+  selector: 'app-plantas',
+  templateUrl: './plantas.component.html',
+  styleUrls: ['./plantas.component.scss']
 })
-export class ViverosComponent implements OnInit{
+export class PlantasComponent implements OnInit {
 
   public executing;
   public parentURL = '/home';
@@ -19,13 +19,16 @@ export class ViverosComponent implements OnInit{
   }
 
   // OnClickListeners
-  verViverosClick(): void{
-    this.router.navigateByUrl(this.parentURL + '/listaViveros');
+  verPlantasClick(): void{
+    this.router.navigateByUrl(this.parentURL + '/listaPlantas').then( () => {
+      location.reload();
+    });
   }
 
-  crearViveroClick(newVal: number): void{
+  agregarPlantaClick(newVal: number): void{
     this.executing = newVal;
-    this.router.navigateByUrl(this.parentURL + '/crearVivero');
+    this.router.navigateByUrl(this.parentURL + '/agregarPlanta');
+
   }
 
   back(): void{

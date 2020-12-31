@@ -12,7 +12,6 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material
-
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,13 +31,16 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ViverosComponent } from './viveros/viveros.component';
-import { PlantasComponent } from './plantas/plantas/plantas.component';
+import { PlantasComponent } from './plantas/plantas.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ViverosDatatableComponent } from './viveros/viveros-datatable/viveros-datatable.component';
 import { CrearViverosComponent } from './viveros/crear-viveros/crear-viveros.component';
 import { DetallesModificarViveroComponent } from './viveros/detalles-modificar-vivero/detalles-modificar-vivero.component';
+import { PlantasDatatableComponent } from './plantas/plantas-datatable/plantas-datatable.component';
+import { CrearPlantaComponent } from './plantas/crear-planta/crear-planta.component';
+import { DetallesPlantaComponent } from './plantas/detalles-planta/detalles-planta.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,10 @@ import { DetallesModificarViveroComponent } from './viveros/detalles-modificar-v
     PlantasComponent,
     ViverosDatatableComponent,
     CrearViverosComponent,
-    DetallesModificarViveroComponent
+    DetallesModificarViveroComponent,
+    PlantasDatatableComponent,
+    CrearPlantaComponent,
+    DetallesPlantaComponent
   ],
   imports: [
     BrowserModule,

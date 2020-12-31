@@ -2,13 +2,11 @@
 
 @function
 color($color){
-    @return map-get($mat-primary,$color)
+    @return map-get($mat-primary,$color);
 }
 
-$width : 80%;
-
-
 .eliminateTd{
+
     padding: 0%;
     
     .eliminateBtn{

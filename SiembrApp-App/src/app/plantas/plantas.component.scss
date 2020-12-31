@@ -2,12 +2,12 @@
 
 @function
 color($color){
-    @return map-get($mat-primary,$color)
+    @return map-get($mat-primary,$color);
 }
 
 .buttonsDiv{
 
-    .viverosBtn{
+    .plantasBtn{
         
         margin: 1%;
         background-color: color(lighter);

@@ -17,7 +17,7 @@
 </header>
 
 <p>
-    <mat-tab-group mat-align-tabs="start">
+    <mat-tab-group mat-align-tabs="start" (selectedIndexChange)="onTabChanged()">
         
         <!-- Plantas section -->
         <mat-tab label="Plantas">

@@ -1,0 +1,30 @@
+@import '/src/styles';
+
+.detallesDiv{
+    padding: 1%;
+    min-height: 300px;
+
+    .detallesViveroField{
+
+        width: 95%;
+        min-height: 25%;
+        font-size: 18px;
+        
+        .matLabel{
+    
+            height: 3%;
+            min-height: 20px;
+            padding: 0%;
+            display: block;
+    
+        }
+
+        .inputField{
+            padding: 0%;
+            font-size: 18px;
+            min-height: 50px;
+        }
+
+    }
+
+}
