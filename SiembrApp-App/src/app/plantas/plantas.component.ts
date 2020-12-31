@@ -28,7 +28,31 @@ export class PlantasComponent implements OnInit {
   agregarPlantaClick(newVal: number): void{
     this.executing = newVal;
     this.router.navigateByUrl(this.parentURL + '/agregarPlanta');
+  }
 
+
+  verFamilias(newVal: number): void{
+    this.executing = newVal;
+    this.router.navigateByUrl(this.parentURL + '/listaFamilias').then( () => {
+      location.reload();
+    });
+  }
+
+  agregarFamiliaClick(newVal: number): void{
+    this.executing = newVal;
+
+  }
+
+
+  verFenologias(newVal: number): void{
+    this.executing = newVal;
+    this.router.navigateByUrl(this.parentURL + '/listaFenologias').then( () => {
+      location.reload();
+    });
+  }
+
+  agregarFenologiaClick(newVal: number): void{
+    this.executing = newVal;
   }
 
   back(): void{

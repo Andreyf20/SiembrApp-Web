@@ -41,6 +41,8 @@ import { DetallesModificarViveroComponent } from './viveros/detalles-modificar-v
 import { PlantasDatatableComponent } from './plantas/plantas-datatable/plantas-datatable.component';
 import { CrearPlantaComponent } from './plantas/crear-planta/crear-planta.component';
 import { DetallesPlantaComponent } from './plantas/detalles-planta/detalles-planta.component';
+import { FamiliasDatatableComponent } from './plantas/familias-datatable/familias-datatable.component';
+import { FenologiasDatatableComponent } from './plantas/fenologias-datatable/fenologias-datatable.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { DetallesPlantaComponent } from './plantas/detalles-planta/detalles-plan
     DetallesModificarViveroComponent,
     PlantasDatatableComponent,
     CrearPlantaComponent,
-    DetallesPlantaComponent
+    DetallesPlantaComponent,
+    FamiliasDatatableComponent,
+    FenologiasDatatableComponent
   ],
   imports: [
     BrowserModule,

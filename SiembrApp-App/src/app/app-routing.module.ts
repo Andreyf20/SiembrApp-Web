@@ -26,8 +26,12 @@ const routes: Routes = [
 
     // Plantas
     { path: 'listaPlantas', component: PlantasDatatableComponent },
+    { path: 'listaFamilias', component: DetallesPlantaComponent },
+    { path: 'listaFenologias', component: CrearPlantaComponent },
+
     { path: 'agregarPlanta', component: CrearPlantaComponent },
-    { path: 'detallesPlanta', component: DetallesPlantaComponent }
+    { path: 'detallesPlanta', component: DetallesPlantaComponent },
+
   ]}
 
 ];

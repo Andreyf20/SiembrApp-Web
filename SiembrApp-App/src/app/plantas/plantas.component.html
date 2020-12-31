@@ -4,6 +4,14 @@
 
     <button mat-button class="plantasBtn" [disabled]="executing != 1 && executing != -1" (click) = "agregarPlantaClick(1)"> Agregar planta </button>
 
+    <button mat-button class="plantasBtn" [disabled]="executing != 2 && executing != -1" (click) = "verFamilias(2)"> Ver familias </button>
+
+    <button mat-button class="plantasBtn" [disabled]="executing != 4 && executing != -1" (click) = "agregarFamiliaClick(2)"> Agregar familia </button>
+
+    <button mat-button class="plantasBtn" [disabled]="executing != 3 && executing != -1" (click) = "verFenologias(1)"> Ver fenologías </button>
+    
+    <button mat-button class="plantasBtn" [disabled]="executing != 5 && executing != -1" (click) = "agregarFenologiaClick(3)"> Agregar fenología </button>
+
     <button mat-button class="cancelBtn" *ngIf="executing != -1" (click) = "back()"> Cancelar </button>
 
 </div>

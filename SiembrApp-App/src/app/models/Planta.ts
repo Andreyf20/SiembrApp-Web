@@ -1,3 +1,11 @@
+export interface Fenologia{
+    nombre: string;
+}
+
+export interface Familia{
+    nombre: string;
+}
+
 export interface Planta{
 
     nombrecomun: string;
