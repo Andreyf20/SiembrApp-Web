@@ -6,6 +6,14 @@ export interface Familia{
     nombre: string;
 }
 
+export interface MetodoDispersion{
+    nombre: string;
+}
+
+export interface AgentePolinizador{
+    nombre: string;
+}
+
 export interface Planta{
 
     nombrecomun: string;
