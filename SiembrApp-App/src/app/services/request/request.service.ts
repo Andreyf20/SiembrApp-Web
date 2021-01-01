@@ -248,4 +248,20 @@ export class RequestService {
       })
     );
   }
+
+  public crearAgentePolinizador(nombre: string): Observable<boolean>{
+
+    const url = AppSettings.APIURL + 'agregar_agentepolinizador';
+
+    const observable: Observable<any> = this.http.get(url);
+
+    const payload = {
+      agentepolinizador: nombre
+    };
+
+    return this.http.post(url, payload).pipe(
+      map(
+        res => (Object.values(res)[0] === '1')
+     ));
+  }
 }

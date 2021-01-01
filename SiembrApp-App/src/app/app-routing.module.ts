@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { CrearAgentePolinizadorComponent } from './plantas/Agente polinizador/polinizador-datatable/crear-agente-polinizador/crear-agente-polinizador.component';
 
 const routes: Routes = [
 
@@ -41,6 +42,7 @@ const routes: Routes = [
 
     // Agentes polinizadores
     { path: 'listaAgentesPolinizadores', component: PolinizadorDatatableComponent },
+    { path: 'crearAgentePolinizador', component: CrearAgentePolinizadorComponent },
 
     // Viveros
     { path: 'crearVivero', component: CrearViverosComponent },

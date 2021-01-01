@@ -68,6 +68,7 @@ export class PlantasComponent implements OnInit {
 
   agregarPolinizador(newVal: number): void{
     this.executing = newVal;
+    this.router.navigateByUrl(this.parentURL + '/crearAgentePolinizador').then(() => location.reload());
   }
 
   back(): void{

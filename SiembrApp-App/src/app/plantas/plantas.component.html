@@ -1,30 +1,29 @@
 <div class="buttonsDiv">
 
-    <button mat-button class="plantasBtn" [disabled]="executing != 0 && executing != -1" (click) = "verPlantasClick()"> Ver plantas </button>
+    <button mat-button class="plantasBtn" [disabled]="executing != -1" (click) = "verPlantasClick()"> Ver plantas </button>
 
-    <button mat-button class="plantasBtn" [disabled]="executing != 1 && executing != -1" (click) = "agregarPlantaClick(1)"> Agregar planta </button>
-
-
-    <button mat-button class="plantasBtn" [disabled]="executing != 2 && executing != -1" (click) = "verFamiliasClick()"> Ver familias </button>
-
-    <button mat-button class="plantasBtn" [disabled]="executing != 3 && executing != -1" (click) = "agregarFamiliaClick(3)"> Agregar familia </button>
+    <button mat-button class="plantasBtn" [disabled]="executing != 0 && executing != -1" (click) = "agregarPlantaClick(0)"> Agregar planta </button>
 
 
-    <button mat-button class="plantasBtn" [disabled]="executing != 4 && executing != -1" (click) = "verFenologiasClick()"> Ver fenologías </button>
+    <button mat-button class="plantasBtn" [disabled]="executing != -1" (click) = "verFamiliasClick()"> Ver familias </button>
 
-    <button mat-button class="plantasBtn" [disabled]="executing != 5 && executing != -1" (click) = "agregarFenologiaClick(4)"> Agregar fenología </button>
+    <button mat-button class="plantasBtn" [disabled]="executing != 1 && executing != -1" (click) = "agregarFamiliaClick(1)"> Agregar familia </button>
 
 
-    <button mat-button class="plantasBtn" [disabled]="executing != 6 && executing != -1" (click) = "verMetodosDispersionClick()"> Ver métodos de dispersión </button>
+    <button mat-button class="plantasBtn" [disabled]="executing != -1" (click) = "verFenologiasClick()"> Ver fenologías </button>
 
-    <button mat-button class="plantasBtn" [disabled]="executing != 7 && executing != -1" (click) = "agregarMetodoDispersionClick(5)"> Agregar método de dispersión </button>
+    <button mat-button class="plantasBtn" [disabled]="executing != 2 && executing != -1" (click) = "agregarFenologiaClick(2)"> Agregar fenología </button>
 
-    
-    <button mat-button class="plantasBtn" [disabled]="executing != 8 && executing != -1" (click) = "verPolinizadoresClick()"> Ver agentes polinizadores </button>
 
-    <button mat-button class="plantasBtn" [disabled]="executing != 9 && executing != -1" (click) = "agregarPolinizador(6)"> Agregar agente polinizador </button>
+    <button mat-button class="plantasBtn" [disabled]="executing != -1" (click) = "verMetodosDispersionClick()"> Ver métodos de dispersión </button>
+
+    <button mat-button class="plantasBtn" [disabled]="executing != 3 && executing != -1" (click) = "agregarMetodoDispersionClick(3)"> Agregar método de dispersión </button>
 
     
+    <button mat-button class="plantasBtn" [disabled]="executing != -1" (click) = "verPolinizadoresClick()"> Ver agentes polinizadores </button>
+
+    <button mat-button class="plantasBtn" [disabled]="executing != 4 && executing != -1" (click) = "agregarPolinizador(4)"> Agregar agente polinizador </button>
+
     <button mat-button class="cancelBtn" *ngIf="executing != -1" (click) = "back()"> Cancelar </button>
 
 </div>
