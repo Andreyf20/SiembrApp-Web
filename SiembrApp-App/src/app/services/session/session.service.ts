@@ -15,7 +15,7 @@ export class SessionService {
     return SessionService.loggedInUser;
 
   }
-
+  // TODO: User info is lost after reloading
   public static setLoggedUser(newUser: User): void{
 
     SessionService.loggedInUser = newUser;

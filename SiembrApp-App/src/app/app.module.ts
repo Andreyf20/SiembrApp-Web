@@ -43,6 +43,8 @@ import { CrearPlantaComponent } from './plantas/crear-planta/crear-planta.compon
 import { DetallesPlantaComponent } from './plantas/detalles-planta/detalles-planta.component';
 import { FamiliasDatatableComponent } from './plantas/familias-datatable/familias-datatable.component';
 import { FenologiasDatatableComponent } from './plantas/fenologias-datatable/fenologias-datatable.component';
+import { PolinizadorDatatableComponent } from './plantas/polinizador-datatable/polinizador-datatable.component';
+import { DispersionDatatableComponent } from './plantas/dispersion-datatable/dispersion-datatable.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { FenologiasDatatableComponent } from './plantas/fenologias-datatable/fen
     CrearPlantaComponent,
     DetallesPlantaComponent,
     FamiliasDatatableComponent,
-    FenologiasDatatableComponent
+    FenologiasDatatableComponent,
+    PolinizadorDatatableComponent,
+    DispersionDatatableComponent
   ],
   imports: [
     BrowserModule,

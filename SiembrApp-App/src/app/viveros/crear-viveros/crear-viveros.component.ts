@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs';
 import { RequestService } from 'src/app/services/request/request.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -9,13 +10,13 @@ import { Router } from '@angular/router';
   templateUrl: './crear-viveros.component.html',
   styleUrls: ['./crear-viveros.component.scss']
 })
-export class CrearViverosComponent implements OnInit {
+export class CrearViverosComponent implements OnInit, OnDestroy {
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   success = false;
-  private subscription: any;
+  private subscription: Subscription;
   constructor(
     private formBuilder: FormBuilder,
     private requestService: RequestService,
@@ -38,6 +39,12 @@ export class CrearViverosComponent implements OnInit {
       horarios: ''
     });
 
+  }
+
+  ngOnDestroy(): void{
+    if (this.subscription){
+      this.subscription.unsubscribe();
+    }
   }
 
   submit(): void{

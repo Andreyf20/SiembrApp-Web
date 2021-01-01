@@ -1,7 +1,7 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { Vivero } from 'src/app/models/Vivero';
 import { RequestService } from 'src/app/services/request/request.service';
 
@@ -14,7 +14,8 @@ export class ViverosDatatableComponent implements OnInit, OnDestroy {
 
   public viveros: Vivero[];
   private parentURL = '/home';
-
+  private getSub: Subscription;
+  private eliminateSub: Subscription;
   dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(
@@ -30,7 +31,7 @@ export class ViverosDatatableComponent implements OnInit, OnDestroy {
     // Datatable example: https://l-lin.github.io/angular-datatables/#/basic/angular-way
     // Call api to fill viveros
 
-    this.requestService.getViveros().subscribe( res => {
+    this.getSub = this.requestService.getViveros().subscribe( res => {
 
         // res es un arreglo con viveros
         this.viveros = res;
@@ -42,7 +43,14 @@ export class ViverosDatatableComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void{
-    this.dtTrigger.unsubscribe();
+      this.dtTrigger.unsubscribe();
+      if (this.getSub){
+        this.getSub.unsubscribe();
+      }
+      if (this.eliminateSub){
+        this.eliminateSub.unsubscribe();
+      }
+
   }
 
   rowClick(targetVivero: Vivero): void{
@@ -56,7 +64,7 @@ export class ViverosDatatableComponent implements OnInit, OnDestroy {
 
     if (confirm === nombre){
       // Enviar al servicio que hace requests al API
-      this.requestService.eliminarVivero(nombre).subscribe( res => {
+      this.eliminateSub = this.requestService.eliminarVivero(nombre).subscribe( res => {
 
         if (res){
           this.router.navigateByUrl('/listaViveros');

@@ -5,5 +5,5 @@ export interface User{
     uid: string;
     nombretipoorganizacion: string;
     razon: string;
-
+    admin: string;
 }

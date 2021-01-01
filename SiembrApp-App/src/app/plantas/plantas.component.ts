@@ -18,11 +18,10 @@ export class PlantasComponent implements OnInit {
    this.executing = -1;
   }
 
-  // OnClickListeners
+
+  // Plantas
   verPlantasClick(): void{
-    this.router.navigateByUrl(this.parentURL + '/listaPlantas').then( () => {
-      location.reload();
-    });
+    this.router.navigateByUrl(this.parentURL + '/listaPlantas').then(() => location.reload());
   }
 
   agregarPlantaClick(newVal: number): void{
@@ -31,11 +30,9 @@ export class PlantasComponent implements OnInit {
   }
 
 
-  verFamilias(newVal: number): void{
-    this.executing = newVal;
-    this.router.navigateByUrl(this.parentURL + '/listaFamilias').then( () => {
-      location.reload();
-    });
+  // Familias
+  verFamiliasClick(): void{
+    this.router.navigateByUrl(this.parentURL + '/listaFamilias').then(() => location.reload());
   }
 
   agregarFamiliaClick(newVal: number): void{
@@ -43,15 +40,32 @@ export class PlantasComponent implements OnInit {
 
   }
 
-
-  verFenologias(newVal: number): void{
-    this.executing = newVal;
-    this.router.navigateByUrl(this.parentURL + '/listaFenologias').then( () => {
-      location.reload();
-    });
+  // Fenologias
+  verFenologiasClick(): void{
+    this.router.navigateByUrl(this.parentURL + '/listaFenologias').then(() => location.reload());
   }
 
   agregarFenologiaClick(newVal: number): void{
+    this.executing = newVal;
+  }
+
+  // Metodo de dispersion
+  verMetodosDispersionClick(): void{
+    this.router.navigateByUrl(this.parentURL + '/listaMetodosDispersion').then(() => location.reload());
+  }
+
+  agregarMetodoDispersionClick(newVal: number): void{
+    this.executing = newVal;
+  }
+
+  // Agente polinizador
+  verPolinizadoresClick(): void{
+
+    this.router.navigateByUrl(this.parentURL + '/listaAgentesPolinizadores').then(() => location.reload());
+
+  }
+
+  agregarPolinizador(newVal: number): void{
     this.executing = newVal;
   }
 

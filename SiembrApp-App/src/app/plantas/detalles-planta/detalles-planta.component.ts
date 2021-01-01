@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './detalles-planta.component.html',
   styleUrls: ['./detalles-planta.component.scss']
 })
-export class DetallesPlantaComponent implements OnInit {
+export class DetallesPlantaComponent implements OnInit, OnDestroy {
 
   // Atributos de Planta
   nombrecomun = '';
@@ -27,11 +28,14 @@ export class DetallesPlantaComponent implements OnInit {
   maxRangoAltitudinal = '';
   metros = '';
 
+  // Subs
+  plantaInfoSub: Subscription;
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
 
-    this.route.queryParams.subscribe( params => {
+    this.plantaInfoSub = this.route.queryParams.subscribe( params => {
 
         this.nombrecomun = params.nombrecomun;
         this.nombrecientifico = params.nombrecientifico;
@@ -52,50 +56,11 @@ export class DetallesPlantaComponent implements OnInit {
         this.metros = params.metros;
 
     });
-
   }
 
+  ngOnDestroy(): void{
+
+    this.plantaInfoSub.unsubscribe();
+
+  }
 }
-
-/*
-
-  // Atributos de Planta
-  nombrecomun = '';
-  nombrecientifico = '';
-  familia = '';
-  origen = '';
-  fenologia = '';
-  polinizador = '';
-  requerimientosdeluz = '';
-  metododispersion = '';
-  fruto = '';
-  texturaFruto = '';
-  flor = '';
-  habito = '';
-  usosConocidos = '';
-  paisajerecomendado = '';
-  minRangoAltitudinal = '';
-  maxRangoAltitudinal = '';
-  metros = '';
- this.route.queryParams.subscribe( params => {
-
-        nombrecomun;
-        nombrecientifico;
-        familia;
-        origen;
-        fenologia;
-        polinizador;
-        requerimientosdeluz;
-        metododispersion;
-        fruto;
-        texturaFruto;
-        flor;
-        habito;
-        usosConocidos;
-        paisajerecomendado;
-        minRangoAltitudinal;
-        maxRangoAltitudinal;
-        metros;
-
-    });
-*/

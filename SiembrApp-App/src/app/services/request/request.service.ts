@@ -1,3 +1,4 @@
+import { Fenologia, MetodoDispersion, AgentePolinizador, Familia } from './../../models/Planta';
 import { Injectable } from '@angular/core';
 import { AppSettings } from '../../appSettings';
 import { HttpClient } from '@angular/common/http';
@@ -55,7 +56,8 @@ export class RequestService {
           nombre: info.nombre,
           correo: info.correo,
           nombretipoorganizacion : info.nombretipoorganizacion,
-          razon : info.razon
+          razon : info.razon,
+          admin: info.admin
 
         };
 
@@ -157,5 +159,76 @@ export class RequestService {
       })
     );
 
+  }
+
+  // Familias
+
+  public getFamilias(): Observable<Familia[]> {
+
+    const url = AppSettings.APIURL + 'listFamilias';
+
+    const observable: Observable<any> = this.http.get(url);
+
+    return observable.pipe(
+
+      map( res => {
+
+        const familiasList = res.familias;
+        return familiasList;
+
+      })
+    );
+  }
+
+  // Fenologias
+  public getFenologias(): Observable<Fenologia[]> {
+
+    const url = AppSettings.APIURL + 'listFenologias';
+
+    const observable: Observable<any> = this.http.get(url);
+
+    return observable.pipe(
+
+      map( res => {
+
+        const viverosList = res.fenologias;
+        return viverosList;
+
+      })
+    );
+  }
+  // Metodos de dispersion
+  public getMetodosDispersion(): Observable<MetodoDispersion[]> {
+
+    const url = AppSettings.APIURL + 'listMetodosDispersion';
+
+    const observable: Observable<any> = this.http.get(url);
+
+    return observable.pipe(
+
+      map( res => {
+
+        const metodosList = res.metodosdispersion;
+        return metodosList;
+
+      })
+    );
+  }
+  // Agente polinizador
+  public getAgentesPolinizadores(): Observable<AgentePolinizador[]> {
+
+    const url = AppSettings.APIURL + 'listAgentePolinizador';
+
+    const observable: Observable<any> = this.http.get(url);
+
+    return observable.pipe(
+
+      map( res => {
+
+        const agentesList = res.agentes;
+        return agentesList;
+
+      })
+    );
   }
 }
