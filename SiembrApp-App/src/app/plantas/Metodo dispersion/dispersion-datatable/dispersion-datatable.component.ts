@@ -1,4 +1,4 @@
-import { MetodoDispersion } from './../../models/Planta';
+import { MetodoDispersion } from '../../../models/Planta';
 import { Component, OnInit, ViewChild, OnDestroy, AfterViewInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';

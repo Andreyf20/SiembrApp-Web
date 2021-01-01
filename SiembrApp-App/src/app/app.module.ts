@@ -41,10 +41,11 @@ import { DetallesModificarViveroComponent } from './viveros/detalles-modificar-v
 import { PlantasDatatableComponent } from './plantas/plantas-datatable/plantas-datatable.component';
 import { CrearPlantaComponent } from './plantas/crear-planta/crear-planta.component';
 import { DetallesPlantaComponent } from './plantas/detalles-planta/detalles-planta.component';
-import { FamiliasDatatableComponent } from './plantas/familias-datatable/familias-datatable.component';
-import { FenologiasDatatableComponent } from './plantas/fenologias-datatable/fenologias-datatable.component';
-import { PolinizadorDatatableComponent } from './plantas/polinizador-datatable/polinizador-datatable.component';
-import { DispersionDatatableComponent } from './plantas/dispersion-datatable/dispersion-datatable.component';
+import { FamiliasDatatableComponent } from './plantas/Familia/familias-datatable/familias-datatable.component';
+import { FenologiasDatatableComponent } from './plantas/Fenologia/fenologias-datatable/fenologias-datatable.component';
+import { PolinizadorDatatableComponent } from './plantas/Agente polinizador/polinizador-datatable/polinizador-datatable.component';
+import { DispersionDatatableComponent } from './plantas/Metodo dispersion/dispersion-datatable/dispersion-datatable.component';
+import { CrearDispersionComponent } from './plantas/Metodo dispersion/crear-dispersion/crear-dispersion.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { DispersionDatatableComponent } from './plantas/dispersion-datatable/dis
     FamiliasDatatableComponent,
     FenologiasDatatableComponent,
     PolinizadorDatatableComponent,
-    DispersionDatatableComponent
+    DispersionDatatableComponent,
+    CrearDispersionComponent
   ],
   imports: [
     BrowserModule,
