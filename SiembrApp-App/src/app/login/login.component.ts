@@ -1,3 +1,4 @@
+import { Subscription } from 'rxjs';
 import { SessionService } from './../services/session/session.service';
 import { RequestService } from './../services/request/request.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
@@ -13,7 +14,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit, OnDestroy {
 
   correoInput = '';
-  loginSubscription: any;
+  loginSubscription: Subscription;
+  userSub: Subscription;
   constructor(
     private titleService: Title,
     private router: Router,
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.loginSubscription.unsubscribe();
+    this.userSub.unsubscribe();
   }
 
   public setTitle( newTitle: string): void {
@@ -51,7 +54,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
         // Fetch User info
 
-        this.requestService.getUserInfo(this.correoInput).subscribe(user => {
+        this.userSub = this.requestService.getUserInfo(this.correoInput).subscribe(user => {
 
           SessionService.setLoggedUser(user);
 
@@ -60,16 +63,11 @@ export class LoginComponent implements OnInit, OnDestroy {
             return;
           }
           this.snackBar.open('Este usuario no tiene permisos', 'Entendido', { duration: 2000, });
-
         });
-
-
       }
       else{
         this.snackBar.open('Credenciales incorrectos', 'Entendido', { duration: 2000, });
       }
-
     });
   }
-
 }

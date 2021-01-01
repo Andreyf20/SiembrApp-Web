@@ -20,10 +20,8 @@ export class PlantasComponent implements OnInit {
 
 
   // Plantas
-  verPlantasClick(newVal: number): void{
-    this.router.navigateByUrl(this.parentURL + '/listaPlantas').then( () => {
-      location.reload();
-    });
+  verPlantasClick(): void{
+    this.router.navigateByUrl(this.parentURL + '/listaPlantas').then(() => location.reload());
   }
 
   agregarPlantaClick(newVal: number): void{
@@ -34,7 +32,7 @@ export class PlantasComponent implements OnInit {
 
   // Familias
   verFamiliasClick(): void{
-    this.router.navigateByUrl(this.parentURL + '/listaFamilias');
+    this.router.navigateByUrl(this.parentURL + '/listaFamilias').then(() => location.reload());
   }
 
   agregarFamiliaClick(newVal: number): void{
@@ -44,9 +42,7 @@ export class PlantasComponent implements OnInit {
 
   // Fenologias
   verFenologiasClick(): void{
-    this.router.navigateByUrl(this.parentURL + '/listaFenologias').then( () => {
-      location.reload();
-    });
+    this.router.navigateByUrl(this.parentURL + '/listaFenologias');
   }
 
   agregarFenologiaClick(newVal: number): void{
@@ -55,9 +51,7 @@ export class PlantasComponent implements OnInit {
 
   // Metodo de dispersion
   verMetodosDispersionClick(): void{
-    this.router.navigateByUrl(this.parentURL + '/listaMetodosDispersion').then( () => {
-      location.reload();
-    });
+    this.router.navigateByUrl(this.parentURL + '/listaMetodosDispersion');
   }
 
   agregarMetodoDispersionClick(newVal: number): void{
@@ -67,9 +61,7 @@ export class PlantasComponent implements OnInit {
   // Agente polinizador
   verPolinizadoresClick(): void{
 
-    this.router.navigateByUrl(this.parentURL + '/listaAgentesPolinizadores').then( () => {
-      location.reload();
-    });
+    this.router.navigateByUrl(this.parentURL + '/listaAgentesPolinizadores');
 
   }
 

@@ -1,6 +1,7 @@
+import { Subscription } from 'rxjs';
 import { RequestService } from 'src/app/services/request/request.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Vivero } from 'src/app/models/Vivero';
 
@@ -10,7 +11,7 @@ import { Vivero } from 'src/app/models/Vivero';
   templateUrl: './detalles-modificar-vivero.component.html',
   styleUrls: ['./detalles-modificar-vivero.component.scss']
 })
-export class DetallesModificarViveroComponent implements OnInit {
+export class DetallesModificarViveroComponent implements OnInit, OnDestroy {
 
   // Atributos
   nombre = '';
@@ -18,6 +19,9 @@ export class DetallesModificarViveroComponent implements OnInit {
   telefonos = '';
   horarios = '';
 
+  // Subscripcion
+  successSub: Subscription;
+  queryParamsSub: Subscription;
   constructor(
     private route: ActivatedRoute,
     private snackBar: MatSnackBar,
@@ -26,7 +30,7 @@ export class DetallesModificarViveroComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.route.queryParams.subscribe( params => {
+    this.queryParamsSub = this.route.queryParams.subscribe( params => {
 
       this.nombre = params.nombre;
       this.direccion = params.direccion;
@@ -34,6 +38,11 @@ export class DetallesModificarViveroComponent implements OnInit {
       this.horarios = params.horarios;
 
     });
+  }
+
+  ngOnDestroy(): void{
+    this.queryParamsSub.unsubscribe();
+    if (this.successSub){this.successSub.unsubscribe(); }
   }
 
   /**
@@ -46,7 +55,7 @@ export class DetallesModificarViveroComponent implements OnInit {
     if (confirm === 'si'){
 
     // Enviar al servicio que hace requests al API
-    this.requestService.modificarDatosVivero(
+    this.successSub = this.requestService.modificarDatosVivero(
       this.nombre,
       this.direccion,
       this.telefonos.length !== 0 ? this.telefonos : 'NO INDICA',
