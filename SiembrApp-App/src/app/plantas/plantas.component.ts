@@ -56,6 +56,7 @@ export class PlantasComponent implements OnInit {
 
   agregarMetodoDispersionClick(newVal: number): void{
     this.executing = newVal;
+    this.router.navigateByUrl(this.parentURL + '/crearMetodoDispersion').then(() => location.reload());
   }
 
   // Agente polinizador

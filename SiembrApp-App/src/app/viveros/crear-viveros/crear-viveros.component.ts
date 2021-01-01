@@ -15,8 +15,8 @@ export class CrearViverosComponent implements OnInit, OnDestroy {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
-  success = false;
   private subscription: Subscription;
+
   constructor(
     private formBuilder: FormBuilder,
     private requestService: RequestService,

@@ -1,3 +1,4 @@
+import { CrearMetodoDispersionComponent } from './plantas/Metodo dispersion/crear-metodo-dispersion/crear-metodo-dispersion.component';
 import { FenologiasDatatableComponent } from './plantas/Fenologia/fenologias-datatable/fenologias-datatable.component';
 import { FamiliasDatatableComponent } from './plantas/Familia/familias-datatable/familias-datatable.component';
 import { PolinizadorDatatableComponent } from './plantas/Agente polinizador/polinizador-datatable/polinizador-datatable.component';
@@ -25,13 +26,21 @@ const routes: Routes = [
 
     // Plantas
     { path: 'listaPlantas', component: PlantasDatatableComponent },
-    { path: 'listaFamilias', component: FamiliasDatatableComponent },
-    { path: 'listaFenologias', component: FenologiasDatatableComponent },
-    { path: 'listaMetodosDispersion', component: DispersionDatatableComponent },
-    { path: 'listaAgentesPolinizadores', component: PolinizadorDatatableComponent },
-
     { path: 'agregarPlanta', component: CrearPlantaComponent },
     { path: 'detallesPlanta', component: DetallesPlantaComponent },
+
+    // Metodos de dispersion
+    { path: 'listaMetodosDispersion', component: DispersionDatatableComponent },
+    { path: 'crearMetodoDispersion', component: CrearMetodoDispersionComponent },
+
+    // Familias
+    { path: 'listaFamilias', component: FamiliasDatatableComponent },
+
+    // Fenologias
+    { path: 'listaFenologias', component: FenologiasDatatableComponent },
+
+    // Agentes polinizadores
+    { path: 'listaAgentesPolinizadores', component: PolinizadorDatatableComponent },
 
     // Viveros
     { path: 'crearVivero', component: CrearViverosComponent },

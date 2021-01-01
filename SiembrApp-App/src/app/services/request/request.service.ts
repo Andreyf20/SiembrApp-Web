@@ -102,8 +102,6 @@ export class RequestService {
       horarios: (horarios.length !== 0 ? horarios : 'NO INDICA')
     };
 
-    console.log(payload);
-
     return this.http.post(url, payload).pipe(
        map(
          res => (Object.values(res)[0] === true)
@@ -197,6 +195,7 @@ export class RequestService {
       })
     );
   }
+
   // Metodos de dispersion
   public getMetodosDispersion(): Observable<MetodoDispersion[]> {
 
@@ -214,6 +213,24 @@ export class RequestService {
       })
     );
   }
+
+  public crearMetodoDispersion(nombre: string): Observable<boolean>{
+
+    const url = AppSettings.APIURL + 'agregar_metododispersion';
+
+    const observable: Observable<any> = this.http.get(url);
+
+    const payload = {
+      metododispersion: nombre
+    };
+
+    return this.http.post(url, payload).pipe(
+      map(
+        res => (Object.values(res)[0] === '1')
+     ));
+  }
+
+
   // Agente polinizador
   public getAgentesPolinizadores(): Observable<AgentePolinizador[]> {
 
