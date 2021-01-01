@@ -56,7 +56,8 @@ export class RequestService {
           nombre: info.nombre,
           correo: info.correo,
           nombretipoorganizacion : info.nombretipoorganizacion,
-          razon : info.razon
+          razon : info.razon,
+          admin: info.admin
 
         };
 
