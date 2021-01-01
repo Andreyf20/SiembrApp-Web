@@ -196,6 +196,22 @@ export class RequestService {
     );
   }
 
+  public crearFenologia(nombre: string): Observable<boolean>{
+
+    const url = AppSettings.APIURL + 'agregar_fenologia';
+
+    const observable: Observable<any> = this.http.get(url);
+
+    const payload = {
+      fenologia: nombre
+    };
+
+    return this.http.post(url, payload).pipe(
+      map(
+        res => (Object.values(res)[0] === '1')
+     ));
+  }
+
   // Metodos de dispersion
   public getMetodosDispersion(): Observable<MetodoDispersion[]> {
 

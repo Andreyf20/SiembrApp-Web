@@ -5,11 +5,11 @@ import { Subscription } from 'rxjs';
 import { RequestService } from 'src/app/services/request/request.service';
 
 @Component({
-  selector: 'app-crear-agente-polinizador',
-  templateUrl: './crear-agente-polinizador.component.html',
-  styleUrls: ['./crear-agente-polinizador.component.scss']
+  selector: 'app-crear-fenologia',
+  templateUrl: './crear-fenologia.component.html',
+  styleUrls: ['./crear-fenologia.component.scss']
 })
-export class CrearAgentePolinizadorComponent implements OnInit, OnDestroy {
+export class CrearFenologiaComponent implements OnInit, OnDestroy {
 
   firstFormGroup: FormGroup;
   private subscription: Subscription;
@@ -44,7 +44,7 @@ export class CrearAgentePolinizadorComponent implements OnInit, OnDestroy {
       }else{
         alert('Ocurrió un error o el agente ya existe');
       }
-      return this.router.navigateByUrl('home/listaFenologias').then(() => { location.reload(); });
+      return this.router.navigateByUrl('home/listaAgentesPolinizadores').then(() => { location.reload(); });
 
     });
   }

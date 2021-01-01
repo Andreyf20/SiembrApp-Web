@@ -47,6 +47,7 @@ export class PlantasComponent implements OnInit {
 
   agregarFenologiaClick(newVal: number): void{
     this.executing = newVal;
+    this.router.navigateByUrl(this.parentURL + '/crearFenologia').then(() => location.reload());
   }
 
   // Metodo de dispersion
