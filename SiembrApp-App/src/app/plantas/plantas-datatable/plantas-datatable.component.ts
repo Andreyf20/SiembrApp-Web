@@ -11,6 +11,7 @@ import { DataTableDirective } from 'angular-datatables';
   styleUrls: ['./plantas-datatable.component.scss']
 })
 export class PlantasDatatableComponent implements OnInit, OnDestroy, AfterViewInit {
+  
   @ViewChild(DataTableDirective, {static: false})
   dtElement: DataTableDirective;
 

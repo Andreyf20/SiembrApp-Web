@@ -1,1 +1,14 @@
-<p>fenologias-datatable works!</p>
+<div>
+  <table datatable [dtTrigger]="dtTrigger" class="row-border hover">
+      <thead>
+          <tr style="text-align: left">
+              <th>Nombre</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let fenologia of fenologias">
+            <td>{{fenologia.nombre}}</td>
+          </tr>
+        </tbody>
+    </table>
+</div>

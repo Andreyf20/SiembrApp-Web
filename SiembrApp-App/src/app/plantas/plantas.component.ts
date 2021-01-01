@@ -42,7 +42,7 @@ export class PlantasComponent implements OnInit {
 
   // Fenologias
   verFenologiasClick(): void{
-    this.router.navigateByUrl(this.parentURL + '/listaFenologias');
+    this.router.navigateByUrl(this.parentURL + '/listaFenologias').then(() => location.reload());
   }
 
   agregarFenologiaClick(newVal: number): void{
@@ -51,7 +51,7 @@ export class PlantasComponent implements OnInit {
 
   // Metodo de dispersion
   verMetodosDispersionClick(): void{
-    this.router.navigateByUrl(this.parentURL + '/listaMetodosDispersion');
+    this.router.navigateByUrl(this.parentURL + '/listaMetodosDispersion').then(() => location.reload());
   }
 
   agregarMetodoDispersionClick(newVal: number): void{
@@ -61,7 +61,7 @@ export class PlantasComponent implements OnInit {
   // Agente polinizador
   verPolinizadoresClick(): void{
 
-    this.router.navigateByUrl(this.parentURL + '/listaAgentesPolinizadores');
+    this.router.navigateByUrl(this.parentURL + '/listaAgentesPolinizadores').then(() => location.reload());
 
   }
 

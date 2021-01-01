@@ -1,3 +1,4 @@
+import { FenologiasDatatableComponent } from './plantas/fenologias-datatable/fenologias-datatable.component';
 import { FamiliasDatatableComponent } from './plantas/familias-datatable/familias-datatable.component';
 import { PolinizadorDatatableComponent } from './plantas/polinizador-datatable/polinizador-datatable.component';
 import { DispersionDatatableComponent } from './plantas/dispersion-datatable/dispersion-datatable.component';
@@ -25,7 +26,7 @@ const routes: Routes = [
     // Plantas
     { path: 'listaPlantas', component: PlantasDatatableComponent },
     { path: 'listaFamilias', component: FamiliasDatatableComponent },
-    { path: 'listaFenologias', component: CrearPlantaComponent },
+    { path: 'listaFenologias', component: FenologiasDatatableComponent },
     { path: 'listaMetodosDispersion', component: DispersionDatatableComponent },
     { path: 'listaAgentesPolinizadores', component: PolinizadorDatatableComponent },
 

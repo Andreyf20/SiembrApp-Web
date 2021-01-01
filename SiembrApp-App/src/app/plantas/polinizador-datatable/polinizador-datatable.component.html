@@ -1,1 +1,14 @@
-<p>polinizador-datatable works!</p>
+<div>
+    <table datatable [dtTrigger]="dtTrigger" class="row-border hover">
+        <thead>
+            <tr style="text-align: left">
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let polinizador of polinizadores">
+              <td>{{polinizador.nombre}}</td>
+            </tr>
+          </tbody>
+      </table>
+  </div>
