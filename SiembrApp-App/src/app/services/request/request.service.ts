@@ -102,8 +102,6 @@ export class RequestService {
       horarios: (horarios.length !== 0 ? horarios : 'NO INDICA')
     };
 
-    console.log(payload);
-
     return this.http.post(url, payload).pipe(
        map(
          res => (Object.values(res)[0] === true)
@@ -180,6 +178,23 @@ export class RequestService {
     );
   }
 
+
+  public crearFamilia(nombre: string): Observable<boolean>{
+
+    const url = AppSettings.APIURL + 'agregar_familia';
+
+    const observable: Observable<any> = this.http.get(url);
+
+    const payload = {
+      familia: nombre
+    };
+
+    return this.http.post(url, payload).pipe(
+      map(
+        res => (Object.values(res)[0] === '1')
+     ));
+  }
+
   // Fenologias
   public getFenologias(): Observable<Fenologia[]> {
 
@@ -197,6 +212,23 @@ export class RequestService {
       })
     );
   }
+
+  public crearFenologia(nombre: string): Observable<boolean>{
+
+    const url = AppSettings.APIURL + 'agregar_fenologia';
+
+    const observable: Observable<any> = this.http.get(url);
+
+    const payload = {
+      fenologia: nombre
+    };
+
+    return this.http.post(url, payload).pipe(
+      map(
+        res => (Object.values(res)[0] === '1')
+     ));
+  }
+
   // Metodos de dispersion
   public getMetodosDispersion(): Observable<MetodoDispersion[]> {
 
@@ -214,6 +246,24 @@ export class RequestService {
       })
     );
   }
+
+  public crearMetodoDispersion(nombre: string): Observable<boolean>{
+
+    const url = AppSettings.APIURL + 'agregar_metododispersion';
+
+    const observable: Observable<any> = this.http.get(url);
+
+    const payload = {
+      metododispersion: nombre
+    };
+
+    return this.http.post(url, payload).pipe(
+      map(
+        res => (Object.values(res)[0] === '1')
+     ));
+  }
+
+
   // Agente polinizador
   public getAgentesPolinizadores(): Observable<AgentePolinizador[]> {
 
@@ -230,5 +280,21 @@ export class RequestService {
 
       })
     );
+  }
+
+  public crearAgentePolinizador(nombre: string): Observable<boolean>{
+
+    const url = AppSettings.APIURL + 'agregar_agentepolinizador';
+
+    const observable: Observable<any> = this.http.get(url);
+
+    const payload = {
+      agentepolinizador: nombre
+    };
+
+    return this.http.post(url, payload).pipe(
+      map(
+        res => (Object.values(res)[0] === '1')
+     ));
   }
 }

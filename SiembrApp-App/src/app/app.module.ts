@@ -41,10 +41,14 @@ import { DetallesModificarViveroComponent } from './viveros/detalles-modificar-v
 import { PlantasDatatableComponent } from './plantas/plantas-datatable/plantas-datatable.component';
 import { CrearPlantaComponent } from './plantas/crear-planta/crear-planta.component';
 import { DetallesPlantaComponent } from './plantas/detalles-planta/detalles-planta.component';
-import { FamiliasDatatableComponent } from './plantas/familias-datatable/familias-datatable.component';
-import { FenologiasDatatableComponent } from './plantas/fenologias-datatable/fenologias-datatable.component';
-import { PolinizadorDatatableComponent } from './plantas/polinizador-datatable/polinizador-datatable.component';
-import { DispersionDatatableComponent } from './plantas/dispersion-datatable/dispersion-datatable.component';
+import { FamiliasDatatableComponent } from './plantas/Familia/familias-datatable/familias-datatable.component';
+import { FenologiasDatatableComponent } from './plantas/Fenologia/fenologias-datatable/fenologias-datatable.component';
+import { PolinizadorDatatableComponent } from './plantas/Agente polinizador/polinizador-datatable/polinizador-datatable.component';
+import { DispersionDatatableComponent } from './plantas/Metodo dispersion/dispersion-datatable/dispersion-datatable.component';
+import { CrearMetodoDispersionComponent } from './plantas/Metodo dispersion/crear-metodo-dispersion/crear-metodo-dispersion.component';
+import { CrearAgentePolinizadorComponent } from './plantas/Agente polinizador/polinizador-datatable/crear-agente-polinizador/crear-agente-polinizador.component';
+import { CrearFenologiaComponent } from './plantas/Fenologia/fenologias-datatable/crear-fenologia/crear-fenologia.component';
+import { CrearFamiliaComponent } from './plantas/Familia/familias-datatable/crear-familia/crear-familia.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +67,11 @@ import { DispersionDatatableComponent } from './plantas/dispersion-datatable/dis
     FamiliasDatatableComponent,
     FenologiasDatatableComponent,
     PolinizadorDatatableComponent,
-    DispersionDatatableComponent
+    DispersionDatatableComponent,
+    CrearMetodoDispersionComponent,
+    CrearAgentePolinizadorComponent,
+    CrearFenologiaComponent,
+    CrearFamiliaComponent
   ],
   imports: [
     BrowserModule,

@@ -37,7 +37,7 @@ export class PlantasComponent implements OnInit {
 
   agregarFamiliaClick(newVal: number): void{
     this.executing = newVal;
-
+    this.router.navigateByUrl(this.parentURL + '/crearFamilia').then(() => location.reload());
   }
 
   // Fenologias
@@ -47,6 +47,7 @@ export class PlantasComponent implements OnInit {
 
   agregarFenologiaClick(newVal: number): void{
     this.executing = newVal;
+    this.router.navigateByUrl(this.parentURL + '/crearFenologia').then(() => location.reload());
   }
 
   // Metodo de dispersion
@@ -56,6 +57,7 @@ export class PlantasComponent implements OnInit {
 
   agregarMetodoDispersionClick(newVal: number): void{
     this.executing = newVal;
+    this.router.navigateByUrl(this.parentURL + '/crearMetodoDispersion').then(() => location.reload());
   }
 
   // Agente polinizador
@@ -67,6 +69,7 @@ export class PlantasComponent implements OnInit {
 
   agregarPolinizador(newVal: number): void{
     this.executing = newVal;
+    this.router.navigateByUrl(this.parentURL + '/crearAgentePolinizador').then(() => location.reload());
   }
 
   back(): void{
