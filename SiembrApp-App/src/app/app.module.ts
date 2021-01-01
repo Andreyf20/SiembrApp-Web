@@ -48,6 +48,7 @@ import { DispersionDatatableComponent } from './plantas/Metodo dispersion/disper
 import { CrearMetodoDispersionComponent } from './plantas/Metodo dispersion/crear-metodo-dispersion/crear-metodo-dispersion.component';
 import { CrearAgentePolinizadorComponent } from './plantas/Agente polinizador/polinizador-datatable/crear-agente-polinizador/crear-agente-polinizador.component';
 import { CrearFenologiaComponent } from './plantas/Fenologia/fenologias-datatable/crear-fenologia/crear-fenologia.component';
+import { CrearFamiliaComponent } from './plantas/Familia/familias-datatable/crear-familia/crear-familia.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { CrearFenologiaComponent } from './plantas/Fenologia/fenologias-datatabl
     DispersionDatatableComponent,
     CrearMetodoDispersionComponent,
     CrearAgentePolinizadorComponent,
-    CrearFenologiaComponent
+    CrearFenologiaComponent,
+    CrearFamiliaComponent
   ],
   imports: [
     BrowserModule,

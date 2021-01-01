@@ -1,15 +1,15 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { RequestService } from 'src/app/services/request/request.service';
 
 @Component({
-  selector: 'app-crear-fenologia',
-  templateUrl: './crear-fenologia.component.html',
-  styleUrls: ['./crear-fenologia.component.scss']
+  selector: 'app-crear-familia',
+  templateUrl: './crear-familia.component.html',
+  styleUrls: ['./crear-familia.component.scss']
 })
-export class CrearFenologiaComponent implements OnInit, OnDestroy {
+export class CrearFamiliaComponent implements OnInit, OnDestroy {
 
   firstFormGroup: FormGroup;
   private subscription: Subscription;
@@ -36,16 +36,17 @@ export class CrearFenologiaComponent implements OnInit, OnDestroy {
     const nombre: string = this.firstFormGroup.get('nombre').value;
 
     // Enviar al servicio que hace requests al API
-    this.subscription = this.requestService.crearFenologia(
+    this.subscription = this.requestService.crearFamilia(
       nombre
     ).subscribe( res => {
       if (res){
-        alert('Se ha creado la fenología con éxito');
+        alert('Se ha creado la familia con éxito');
       }else{
-        alert('Ocurrió un error o la fenología ya existe');
+        alert('Ocurrió un error o la familia ya existe');
       }
-      return this.router.navigateByUrl('home/listaAgentesPolinizadores').then(() => { location.reload(); });
+      return this.router.navigateByUrl('home/listaFamilias').then(() => { location.reload(); });
 
     });
   }
+
 }

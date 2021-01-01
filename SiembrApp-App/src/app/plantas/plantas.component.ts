@@ -37,7 +37,7 @@ export class PlantasComponent implements OnInit {
 
   agregarFamiliaClick(newVal: number): void{
     this.executing = newVal;
-
+    this.router.navigateByUrl(this.parentURL + '/crearFamilia').then(() => location.reload());
   }
 
   // Fenologias

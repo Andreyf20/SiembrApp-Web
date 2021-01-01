@@ -1,3 +1,4 @@
+import { CrearFamiliaComponent } from './plantas/Familia/familias-datatable/crear-familia/crear-familia.component';
 import { CrearFenologiaComponent } from './plantas/Fenologia/fenologias-datatable/crear-fenologia/crear-fenologia.component';
 import { CrearMetodoDispersionComponent } from './plantas/Metodo dispersion/crear-metodo-dispersion/crear-metodo-dispersion.component';
 import { FenologiasDatatableComponent } from './plantas/Fenologia/fenologias-datatable/fenologias-datatable.component';
@@ -37,7 +38,7 @@ const routes: Routes = [
 
     // Familias
     { path: 'listaFamilias', component: FamiliasDatatableComponent },
-
+    { path: 'crearFamilia', component: CrearFamiliaComponent },
     // Fenologias
     { path: 'listaFenologias', component: FenologiasDatatableComponent },
     { path: 'crearFenologia', component: CrearFenologiaComponent},

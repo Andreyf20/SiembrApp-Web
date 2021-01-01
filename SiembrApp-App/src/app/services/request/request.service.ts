@@ -178,6 +178,23 @@ export class RequestService {
     );
   }
 
+
+  public crearFamilia(nombre: string): Observable<boolean>{
+
+    const url = AppSettings.APIURL + 'agregar_familia';
+
+    const observable: Observable<any> = this.http.get(url);
+
+    const payload = {
+      familia: nombre
+    };
+
+    return this.http.post(url, payload).pipe(
+      map(
+        res => (Object.values(res)[0] === '1')
+     ));
+  }
+
   // Fenologias
   public getFenologias(): Observable<Fenologia[]> {
 
