@@ -55,7 +55,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
           SessionService.setLoggedUser(user);
 
-          this.router.navigateByUrl('/home');
+          if (SessionService.getLoggedUser().admin){
+            this.router.navigateByUrl('/home');
+            return;
+          }
+          this.snackBar.open('Este usuario no tiene permisos', 'Entendido', { duration: 2000, });
+
         });
 
 
