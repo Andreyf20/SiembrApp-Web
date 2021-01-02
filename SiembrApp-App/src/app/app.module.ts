@@ -19,11 +19,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSelectModule } from '@angular/material/select';
 
 // DataTable
 import { DataTablesModule } from 'angular-datatables';
@@ -75,7 +75,8 @@ import { RegisterComponent } from './register/register/register.component';
     CrearAgentePolinizadorComponent,
     CrearFenologiaComponent,
     CrearFamiliaComponent,
-    RegisterComponent
+    RegisterComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -93,13 +94,13 @@ import { RegisterComponent } from './register/register/register.component';
     MatTabsModule,
     MatToolbarModule,
     MatIconModule,
-    MatExpansionModule,
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
     MatStepperModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatSelectModule
   ],
   providers: [
 

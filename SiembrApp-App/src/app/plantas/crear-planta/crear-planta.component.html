@@ -1,1 +1,80 @@
-<p>crear-planta works!</p>
+<mat-horizontal-stepper linear #stepper>
+    
+    <!-- Step 1 -->
+    <mat-step [stepControl]="firstFormGroup" editable>
+        <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Información 1</ng-template>
+            <mat-form-field>
+                <mat-label>Nombre común</mat-label>
+                <input matInput formControlName="nombreComun" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Nombre científico</mat-label>
+                <input matInput formControlName="nombreCientifico" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Origen</mat-label>
+                <input matInput formControlName="origen" required>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperNext>Siguiente</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <!-- Step 2 -->
+    <mat-step [stepControl]="secondFormGroup" editable>
+        <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Información 2</ng-template>
+
+            <mat-form-field>
+                <mat-label>Familia</mat-label>
+                <mat-select matNativeControl [(ngModel)]="selectedFamilia" name="familia">
+                    <mat-option *ngFor="let familia of familias" [value]="familia.nombre">
+                        {{familia.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field>
+                <mat-label>Fenología</mat-label>
+                <mat-select matNativeControl [(ngModel)]="selectedFenologia" name="fenologia">
+                    <mat-option *ngFor="let fenologia of fenologias" [value]="fenologia.nombre">
+                        {{fenologia.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field>
+                <mat-label>Método de dispersión</mat-label>
+                <mat-select matNativeControl [(ngModel)]="selectedMetodo" name="metodo">
+                    <mat-option *ngFor="let metodo of metodos" [value]="metodo.nombre">
+                        {{metodo.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+            <mat-form-field>
+                <mat-label>Agente polinizador</mat-label>
+                <mat-select matNativeControl [(ngModel)]="selectedAgente" name="agente">
+                    <mat-option *ngFor="let agente of agentes" [value]="agente.nombre">
+                        {{agente.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div>
+                <button mat-button matStepperNext>Siguiente</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <!-- Fin -->
+    <mat-step>
+        <ng-template matStepLabel>Listo</ng-template>
+        <div>
+          <button mat-button matStepperPrevious>Atrás</button>
+          <button class="submitBtn" type="submit" mat-button (click)="submit()">Terminar</button>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>

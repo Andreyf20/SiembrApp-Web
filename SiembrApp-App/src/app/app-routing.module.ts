@@ -29,7 +29,7 @@ const routes: Routes = [
 
     // Plantas
     { path: 'listaPlantas', component: PlantasDatatableComponent },
-    { path: 'agregarPlanta', component: CrearPlantaComponent },
+    { path: 'crearPlanta', component: CrearPlantaComponent },
     { path: 'detallesPlanta', component: DetallesPlantaComponent },
 
     // Metodos de dispersion
