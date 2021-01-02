@@ -1,0 +1,39 @@
+@import '/src/styles';
+
+@function
+color($color){
+    @return map-get($mat-primary,$color)
+}
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+
+  .submitBtn{
+    margin: 5px;
+    background-color: map-get($mat-accent,main);
+    color: white;
+  }
+
+  .optionGroup{
+    width: fit-content;
+    margin: 5px;
+  }
+  
+  p{
+    margin: 5px;
+  }
+  
+  button{
+    margin: 5px;
+    background-color: color(main);
+    color: white;
+
+  }
+}
+
+.mat-form-field {
+  margin-top: 16px;
+  width: 50%;
+  min-height: 30%;
+  font-size: 24px;
+}

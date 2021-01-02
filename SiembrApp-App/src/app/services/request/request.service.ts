@@ -31,6 +31,45 @@ export class RequestService {
     return this.http.post(url, payload).pipe( map( res => (Object.values(res)[0] === '1')));
   }
 
+  /**
+   * Request para crear usuario nuevo
+   * @param nombre
+   * @param correo
+   * @param contrasenna
+   * @param tipoOrganizacion
+   * @param razon
+   * @param admin
+   */
+  public registrarUsuario(
+    nombre: string,
+    correo: string,
+    contrasenna: string,
+    tipoOrganizacion: string,
+    razon: string,
+    admin: boolean
+  ): Observable<boolean>{
+
+      const url = AppSettings.APIURL + 'register_user';
+
+      const payload = {
+        nombre,
+        correo,
+        contrasenna,
+        tipoOrganizacion,
+        razon,
+        admin
+      };
+
+      console.log(payload);
+
+      const observable: Observable<any> = this.http.post(url, payload);
+
+      return observable.pipe(
+      map(
+        res => (Object.values(res)[0] === '1')
+     ));
+  }
+
   public getUserInfo(correo: string): Observable<User>{
 
     const url = AppSettings.APIURL + 'getUserInfo';

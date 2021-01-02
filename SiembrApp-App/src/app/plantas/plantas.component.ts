@@ -26,7 +26,7 @@ export class PlantasComponent implements OnInit {
 
   agregarPlantaClick(newVal: number): void{
     this.executing = newVal;
-    this.router.navigateByUrl(this.parentURL + '/agregarPlanta');
+    this.router.navigateByUrl(this.parentURL + '/agregarPlanta').then(() => location.reload());
   }
 
 

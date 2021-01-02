@@ -2,6 +2,7 @@ import { SessionService } from './services/session/session.service';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { RequestService } from './services/request/request.service';
+
 // Angular native
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule, Title } from '@angular/platform-browser';
@@ -22,6 +23,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 // DataTable
 import { DataTablesModule } from 'angular-datatables';
@@ -49,6 +51,7 @@ import { CrearMetodoDispersionComponent } from './plantas/Metodo dispersion/crea
 import { CrearAgentePolinizadorComponent } from './plantas/Agente polinizador/polinizador-datatable/crear-agente-polinizador/crear-agente-polinizador.component';
 import { CrearFenologiaComponent } from './plantas/Fenologia/fenologias-datatable/crear-fenologia/crear-fenologia.component';
 import { CrearFamiliaComponent } from './plantas/Familia/familias-datatable/crear-familia/crear-familia.component';
+import { RegisterComponent } from './register/register/register.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +74,8 @@ import { CrearFamiliaComponent } from './plantas/Familia/familias-datatable/crea
     CrearMetodoDispersionComponent,
     CrearAgentePolinizadorComponent,
     CrearFenologiaComponent,
-    CrearFamiliaComponent
+    CrearFamiliaComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +98,8 @@ import { CrearFamiliaComponent } from './plantas/Familia/familias-datatable/crea
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatStepperModule
+    MatStepperModule,
+    MatButtonToggleModule
   ],
   providers: [
 
