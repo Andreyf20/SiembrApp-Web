@@ -17,7 +17,6 @@ export class RequestService {
 
   }
 
-
   // Usuario
 
   // Ref: Return observables: https://stackoverflow.com/a/39615116
@@ -178,26 +177,6 @@ export class RequestService {
 
   }
 
-  // Plantas
-
-  public getPlantas(): Observable<Planta[]>{
-
-    const url = AppSettings.APIURL + 'ver_plantas/*';
-
-    const observable: Observable<any> = this.http.get(url);
-
-    return observable.pipe(
-
-      map( res => {
-
-        const plantasList = res;
-        return plantasList;
-
-      })
-    );
-
-  }
-
   // Familias
 
   public getFamilias(): Observable<Familia[]> {
@@ -336,4 +315,83 @@ export class RequestService {
         res => (Object.values(res)[0] === '1')
      ));
   }
+
+    // Plantas
+
+    public getPlantas(): Observable<Planta[]>{
+
+      const url = AppSettings.APIURL + 'ver_plantas/*';
+
+      const observable: Observable<any> = this.http.get(url);
+
+      return observable.pipe(
+
+        map( res => {
+
+          const plantasList = res;
+          return plantasList;
+
+        })
+      );
+    }
+
+    public crearPlanta(
+
+      // Parametros
+      nombreComun: string,
+      nombreCientifico: string,
+      origen: string,
+      minRangoAltitudinal: string,
+      maxRangoAltitudinal: string,
+      metros: string,
+      requerimientosDeLuz: string,
+      habito: string,
+      familia: string,
+      fenologia: string,
+      agentePolinizador: string,
+      metodoDispersion: string,
+      frutos: string,
+      texturaFruto: string,
+      flor: string,
+      usosConocidos: string,
+      paisajeRecomendado: string
+
+    ): Observable<boolean>{
+
+        // Codigo
+        const url = AppSettings.APIURL + 'agregar_planta';
+
+        const payload = {
+          nombreComun,
+          nombreCientifico,
+          origen,
+          minRangoAltitudinal,
+          maxRangoAltitudinal,
+          metros,
+          requerimientosDeLuz,
+          habito,
+          familia,
+          fenologia,
+          agentePolinizador,
+          metodoDispersion,
+          frutos,
+          texturaFruto,
+          flor,
+          usosConocidos,
+          paisajeRecomendado
+        };
+
+        console.log(payload);
+
+        const observable: Observable<any> = this.http.post(url, payload);
+        return observable.pipe(
+
+          map( res => {
+
+            const plantasList = res;
+            return plantasList;
+
+          })
+        );
+    }
 }
