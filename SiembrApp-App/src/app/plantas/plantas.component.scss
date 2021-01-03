@@ -7,22 +7,33 @@ color($color){
 
 .buttonsDiv{
 
-    .plantasBtn{
+    .expansionPanel{
+
+        background-color: white;
         
-        margin: 0.5%;
-        background-color: color(lighter);
-        display: inline-block;
+        .choiceBtn{
+        
+            margin: 0.5%;
+            background-color: color(lighter);
+            display: inline-block;
+            
+        }
+    
+        .cancelBtn{
+    
+            margin: 1%;
+            background-color: color(lighter);
+            display: inline-block;
+            background-color: map-get($mat-warn,main);
+            color: white;
+        }
+
+        mat-expansion-panel-header{
+            color: color(main);
+        }
 
     }
-
-    .cancelBtn{
-
-        margin: 1%;
-        background-color: color(lighter);
-        display: inline-block;
-        background-color: map-get($mat-warn,main);
-        color: white;
-    }
+    
 
 }
 

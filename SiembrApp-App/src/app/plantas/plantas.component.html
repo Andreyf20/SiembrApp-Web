@@ -1,28 +1,74 @@
 <div class="buttonsDiv">
 
-    <button mat-button class="plantasBtn" [disabled]="executing != -1" (click) = "verPlantasClick()"> Ver plantas </button>
+    <mat-expansion-panel class="expansionPanel">
 
-    <button mat-button class="plantasBtn" [disabled]="executing != 0 && executing != -1" (click) = "agregarPlantaClick(0)"> Agregar planta </button>
+        <mat-expansion-panel-header>Plantas</mat-expansion-panel-header>
 
+        <ng-template matExpansionPanelContent>
 
-    <button mat-button class="plantasBtn" [disabled]="executing != -1" (click) = "verFamiliasClick()"> Ver familias </button>
+            <button mat-button class="choiceBtn" [disabled]="executing != -1" (click) = "verPlantasClick()"> Ver plantas </button>
 
-    <button mat-button class="plantasBtn" [disabled]="executing != 1 && executing != -1" (click) = "agregarFamiliaClick(1)"> Agregar familia </button>
+            <button mat-button class="choiceBtn" [disabled]="executing != 0 && executing != -1" (click) = "agregarPlantaClick(0)"> Agregar planta </button>
 
+        </ng-template>
 
-    <button mat-button class="plantasBtn" [disabled]="executing != -1" (click) = "verFenologiasClick()"> Ver fenologías </button>
+    </mat-expansion-panel>
 
-    <button mat-button class="plantasBtn" [disabled]="executing != 2 && executing != -1" (click) = "agregarFenologiaClick(2)"> Agregar fenología </button>
+    <mat-expansion-panel class="expansionPanel">
 
+        <mat-expansion-panel-header>Familia de plantas</mat-expansion-panel-header>
 
-    <button mat-button class="plantasBtn" [disabled]="executing != -1" (click) = "verMetodosDispersionClick()"> Ver métodos de dispersión </button>
+        <ng-template matExpansionPanelContent>
 
-    <button mat-button class="plantasBtn" [disabled]="executing != 3 && executing != -1" (click) = "agregarMetodoDispersionClick(3)"> Agregar método de dispersión </button>
+            <button mat-button class="choiceBtn" [disabled]="executing != -1" (click) = "verFamiliasClick()"> Ver familias </button>
 
+            <button mat-button class="choiceBtn" [disabled]="executing != 1 && executing != -1" (click) = "agregarFamiliaClick(1)"> Agregar familia </button>
+        
+        </ng-template>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel class="expansionPanel">
+
+        <mat-expansion-panel-header>Fenologías</mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+
+            <button mat-button class="choiceBtn" [disabled]="executing != -1" (click) = "verFenologiasClick()"> Ver fenologías </button>
+
+            <button mat-button class="choiceBtn" [disabled]="executing != 2 && executing != -1" (click) = "agregarFenologiaClick(2)"> Agregar fenología </button>
+
+        </ng-template>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel class="expansionPanel">
+
+        <mat-expansion-panel-header>Métodos de dispersión</mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+
+            <button mat-button class="choiceBtn" [disabled]="executing != -1" (click) = "verMetodosDispersionClick()"> Ver métodos de dispersión </button>
+
+            <button mat-button class="choiceBtn" [disabled]="executing != 3 && executing != -1" (click) = "agregarMetodoDispersionClick(3)"> Agregar método de dispersión </button>
+
+        </ng-template>
+
+    </mat-expansion-panel>
     
-    <button mat-button class="plantasBtn" [disabled]="executing != -1" (click) = "verPolinizadoresClick()"> Ver agentes polinizadores </button>
+    <mat-expansion-panel class="expansionPanel" style="margin-bottom: 30px;">
 
-    <button mat-button class="plantasBtn" [disabled]="executing != 4 && executing != -1" (click) = "agregarPolinizador(4)"> Agregar agente polinizador </button>
+        <mat-expansion-panel-header>Agentes polinizadores</mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+
+            <button mat-button class="choiceBtn" [disabled]="executing != -1" (click) = "verPolinizadoresClick()"> Ver agentes polinizadores </button>
+
+            <button mat-button class="choiceBtn" [disabled]="executing != 4 && executing != -1" (click) = "agregarPolinizador(4)"> Agregar agente polinizador </button>
+
+        </ng-template>
+
+    </mat-expansion-panel>
 
     <button mat-button class="cancelBtn" *ngIf="executing != -1" (click) = "back()"> Cancelar </button>
 

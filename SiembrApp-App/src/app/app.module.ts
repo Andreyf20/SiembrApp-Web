@@ -24,6 +24,10 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatSelectModule } from '@angular/material/select';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 // DataTable
 import { DataTablesModule } from 'angular-datatables';
@@ -34,9 +38,6 @@ import { HomeComponent } from './home/home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ViverosComponent } from './viveros/viveros.component';
 import { PlantasComponent } from './plantas/plantas.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
 import { ViverosDatatableComponent } from './viveros/viveros-datatable/viveros-datatable.component';
 import { CrearViverosComponent } from './viveros/crear-viveros/crear-viveros.component';
 import { DetallesModificarViveroComponent } from './viveros/detalles-modificar-vivero/detalles-modificar-vivero.component';
@@ -76,7 +77,6 @@ import { RegisterComponent } from './register/register/register.component';
     CrearFenologiaComponent,
     CrearFamiliaComponent,
     RegisterComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -100,7 +100,8 @@ import { RegisterComponent } from './register/register/register.component';
     MatSortModule,
     MatStepperModule,
     MatButtonToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule
   ],
   providers: [
 
