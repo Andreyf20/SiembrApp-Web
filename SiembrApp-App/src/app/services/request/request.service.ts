@@ -436,11 +436,11 @@ export class RequestService {
         usosConocidos,
         paisajeRecomendado
       };
-
+      console.log(payload);
       const observable: Observable<any> = this.http.post(url, payload);
       return observable.pipe(
 
-        map( res => (Object.values(res)[0] === true))
+        map( res => (Object.values(res)[0] === '1'))
       );
   }
 

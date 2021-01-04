@@ -9,7 +9,7 @@ color($color){
     padding: 1%;
     min-height: 300px;
 
-    .detallesViveroField{
+    .detallesPlantaField{
 
         width: 95%;
         min-height: 25%;
@@ -30,6 +30,16 @@ color($color){
             min-height: 50px;
         }
 
+    }
+
+    .modificarBtn{
+
+        width: 100%;
+        
+        background-color: map-get($mat-accent,main);
+        color: white;
+
+        display: block;
     }
 
     h1{

@@ -1,6 +1,8 @@
 import { Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { RequestService } from 'src/app/services/request/request.service';
 
 @Component({
   selector: 'app-detalles-planta',
@@ -30,8 +32,15 @@ export class DetallesPlantaComponent implements OnInit, OnDestroy {
 
   // Subs
   plantaInfoSub: Subscription;
+  eliminarSub: Subscription;
+  modificarSub: Subscription;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private snackBar: MatSnackBar,
+    private requestService: RequestService
+    ) { }
 
   ngOnInit(): void {
 
@@ -59,8 +68,53 @@ export class DetallesPlantaComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void{
-
     this.plantaInfoSub.unsubscribe();
+    this.eliminarSub.unsubscribe();
+    this.modificarSub.unsubscribe();
+  }
 
+  actualizarDatosVivero(): void{
+
+    const confirm = prompt('¿Está seguro de actualizar los datos del vivero? (Escriba "si" para confirmar)');
+
+    if (confirm === 'si'){
+
+      // Enviar al servicio los parametros para la actualizacion de los datos
+      this.modificarSub = this.requestService.modificarPlanta(
+
+        // Parametros
+
+        this.nombrecomun,
+        this.nombrecientifico,
+        this.origen,
+        this.minRangoAltitudinal,
+        this.maxRangoAltitudinal,
+        this.metros,
+        this.requerimientosdeluz,
+        this.habito,
+        this.familia,
+        this.fenologia,
+        this.polinizador,
+        this.metododispersion,
+        this.fruto,
+        this.texturaFruto,
+        this.flor,
+        this.usosConocidos,
+        this.paisajerecomendado
+
+      ).subscribe( res => {
+        console.log(res);
+        if (res){
+          this.snackBar.open('Se han modificado los datos del vivero con éxito', 'Entendido', { duration: 5000, });
+          this.router.navigateByUrl('/');
+          return;
+        }else{
+          this.snackBar.open('Ocurrió un error', 'Entendido', { duration: 5000, });
+        }
+      });
+
+    }else{
+      this.snackBar.open('No se actualizaron los datos', 'Entendido', { duration: 2000 });
+    }
   }
 }

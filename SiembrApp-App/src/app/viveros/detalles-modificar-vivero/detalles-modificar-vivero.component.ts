@@ -48,7 +48,7 @@ export class DetallesModificarViveroComponent implements OnInit, OnDestroy {
   /**
    * Actualiza los datos del vivero
    */
-  actualizarDatosVivero(): void{
+  public actualizarDatosVivero(): void{
 
     const confirm = prompt('¿Está seguro de actualizar los datos del vivero? (Escriba "si" para confirmar)');
 

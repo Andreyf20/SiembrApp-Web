@@ -1,115 +1,115 @@
 <div class="detallesDiv">
     <h1>Información</h1>
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Nombre común</mat-label>
         <input matInput class="inputField" [(ngModel)] = "nombrecomun" readonly>
     </mat-form-field>
 
     <br/>
 
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Nombre científico</mat-label>
         <input matInput class="inputField" [(ngModel)] = "nombrecientifico" readonly>
     </mat-form-field>
 
     <br/>
 
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Familia</mat-label>
         <input matInput class="inputField" [(ngModel)] = "familia" readonly>
     </mat-form-field>
 
     <br/>
 
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Origen</mat-label>
-        <input matInput class="inputField" [(ngModel)] = "origen" readonly>
+        <input matInput class="inputField" [(ngModel)] = "origen">
     </mat-form-field>
 
     <br/>
 
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Fenología</mat-label>
         <input matInput class="inputField" [(ngModel)] = "fenologia" readonly>
     </mat-form-field>
 
     <br/>
 
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Agente polinizador</mat-label>
         <input matInput class="inputField" [(ngModel)] = "polinizador" readonly>
     </mat-form-field>
 
     <br/>
 
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Requerimientos de luz</mat-label>
-        <input matInput class="inputField" [(ngModel)] = "requerimientosdeluz" readonly>
+        <input matInput class="inputField" [(ngModel)] = "requerimientosdeluz">
     </mat-form-field>
 
     <br/>
 
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Método de dispersión</mat-label>
         <input matInput class="inputField" [(ngModel)] = "metododispersion" readonly>
     </mat-form-field>
 
     <br/>
 
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Fruto</mat-label>
-        <input matInput class="inputField" [(ngModel)] = "fruto" readonly>
+        <input matInput class="inputField" [(ngModel)] = "fruto">
     </mat-form-field>
 
     <br/>
 
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Textura del fruto</mat-label>
-        <input matInput class="inputField" [(ngModel)] = "texturaFruto" readonly>
+        <input matInput class="inputField" [(ngModel)] = "texturaFruto">
     </mat-form-field>
 
     <br/>
 
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Hábito (Altura y diámetro)</mat-label>
-        <input matInput class="inputField" [(ngModel)] = "habito" readonly>
+        <input matInput class="inputField" [(ngModel)] = "habito">
     </mat-form-field>
 
     <br/>
 
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Usos conocidos</mat-label>
-        <input matInput class="inputField" [(ngModel)] = "usosConocidos" readonly>
+        <input matInput class="inputField" [(ngModel)] = "usosConocidos">
     </mat-form-field>
 
     <br/>
 
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Paisajes recomendados</mat-label>
-        <input matInput class="inputField" [(ngModel)] = "paisajerecomendado" readonly>
+        <input matInput class="inputField" [(ngModel)] = "paisajerecomendado">
     </mat-form-field>
 
     <br/>
 
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Mínimo rango altitudinal</mat-label>
-        <input matInput class="inputField" [(ngModel)] = "minRangoAltitudinal" readonly>
+        <input matInput class="inputField" [(ngModel)] = "minRangoAltitudinal">
     </mat-form-field>
 
     <br/>
 
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Máximo rango altitudinal</mat-label>
-        <input matInput class="inputField" [(ngModel)] = "maxRangoAltitudinal" readonly>
+        <input matInput class="inputField" [(ngModel)] = "maxRangoAltitudinal">
     </mat-form-field>
 
     <br/>
 
-    <mat-form-field class="detallesViveroField">
+    <mat-form-field class="detallesPlantaField">
         <mat-label class="matLabel">Metros</mat-label>
-        <input matInput class="inputField" [(ngModel)] = "metros" readonly>
+        <input matInput class="inputField" [(ngModel)] = "metros">
     </mat-form-field>
 
-    <br/>
+    <button mat-button class="modificarBtn" (click)="actualizarDatosVivero()">Actualizar información</button>
 
 </div> 
