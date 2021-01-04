@@ -12,13 +12,13 @@ export class SessionService {
 
   public static getLoggedUser(): User{
 
-    return SessionService.loggedInUser;
+    return JSON.parse( sessionStorage.getItem('userInfo') ) as User;
 
   }
-  // TODO: User info is lost after reloading
+
   public static setLoggedUser(newUser: User): void{
 
-    SessionService.loggedInUser = newUser;
+    sessionStorage.setItem('userInfo', JSON.stringify(newUser));
 
   }
 
