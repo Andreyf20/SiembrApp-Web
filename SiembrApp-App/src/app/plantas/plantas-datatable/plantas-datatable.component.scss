@@ -5,6 +5,20 @@ color($color){
     @return map-get($mat-primary,$color);
 }
 
+.eliminateTd{
+
+    padding: 0%;
+    
+    .eliminateBtn{
+
+        height: 100%;
+        width: 100%;
+        border-radius: 0%;
+        background-color: map-get($mat-warn , main );
+        color: white;
+
+    }
+}
 
 tr{
 

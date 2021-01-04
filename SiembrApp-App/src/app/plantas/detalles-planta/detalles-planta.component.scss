@@ -1,5 +1,10 @@
 @import '/src/styles';
 
+@function
+color($color){
+    @return map-get($mat-primary,$color);
+}
+
 .detallesDiv{
     padding: 1%;
     min-height: 300px;
@@ -25,6 +30,10 @@
             min-height: 50px;
         }
 
+    }
+
+    h1{
+        color: color(main)
     }
 
 }

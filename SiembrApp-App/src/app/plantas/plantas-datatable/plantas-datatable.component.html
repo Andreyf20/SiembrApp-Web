@@ -7,14 +7,18 @@
           <th>Nombre científico</th>
           <th>Familia</th>
           <th>Fenología</th>
+          <th></th>
       </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let planta of plantas" (click) ="rowClick(planta)">
-        <td>{{planta.nombrecomun}}</td>
-        <td>{{planta.nombrecientifico}}</td>
-        <td>{{planta.familia}}</td>
-        <td>{{planta.fenologia}}</td>
+      <tr *ngFor="let planta of plantas">
+        <td (click) ="rowClick(planta)">{{planta.nombrecomun}}</td>
+        <td (click) ="rowClick(planta)">{{planta.nombrecientifico}}</td>
+        <td (click) ="rowClick(planta)">{{planta.familia}}</td>
+        <td (click) ="rowClick(planta)">{{planta.fenologia}}</td>
+        <td class="eliminateTd">
+          <button mat-button class="eliminateBtn" (click)="eliminar(planta.nombrecomun)">Eliminar</button>
+        </td>
       </tr>
     </tbody>
   </table>

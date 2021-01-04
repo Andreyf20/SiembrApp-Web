@@ -318,80 +318,140 @@ export class RequestService {
 
     // Plantas
 
-    public getPlantas(): Observable<Planta[]>{
+  public getPlantas(): Observable<Planta[]>{
 
-      const url = AppSettings.APIURL + 'ver_plantas/*';
+    const url = AppSettings.APIURL + 'ver_plantas/*';
 
-      const observable: Observable<any> = this.http.get(url);
+    const observable: Observable<any> = this.http.get(url);
 
+    return observable.pipe(
+
+      map( res => {
+
+        const plantasList = res;
+        return plantasList;
+
+      })
+    );
+  }
+
+  public crearPlanta(
+
+    // Parametros
+    nombreComun: string,
+    nombreCientifico: string,
+    origen: string,
+    minRangoAltitudinal: string,
+    maxRangoAltitudinal: string,
+    metros: string,
+    requerimientosDeLuz: string,
+    habito: string,
+    familia: string,
+    fenologia: string,
+    agentePolinizador: string,
+    metodoDispersion: string,
+    frutos: string,
+    texturaFruto: string,
+    flor: string,
+    usosConocidos: string,
+    paisajeRecomendado: string
+
+  ): Observable<boolean>{
+
+      // Codigo
+      const url = AppSettings.APIURL + 'agregar_planta';
+
+      const payload = {
+        nombreComun,
+        nombreCientifico,
+        origen,
+        minRangoAltitudinal,
+        maxRangoAltitudinal,
+        metros,
+        requerimientosDeLuz,
+        habito,
+        familia,
+        fenologia,
+        agentePolinizador,
+        metodoDispersion,
+        frutos,
+        texturaFruto,
+        flor,
+        usosConocidos,
+        paisajeRecomendado
+      };
+
+      console.log(payload);
+
+      const observable: Observable<any> = this.http.post(url, payload);
       return observable.pipe(
 
-        map( res => {
-
-          const plantasList = res;
-          return plantasList;
-
-        })
+        map( res => (Object.values(res)[0] === true))
       );
-    }
+  }
 
-    public crearPlanta(
+  // TODO
+  public modificarPlanta(
 
-      // Parametros
-      nombreComun: string,
-      nombreCientifico: string,
-      origen: string,
-      minRangoAltitudinal: string,
-      maxRangoAltitudinal: string,
-      metros: string,
-      requerimientosDeLuz: string,
-      habito: string,
-      familia: string,
-      fenologia: string,
-      agentePolinizador: string,
-      metodoDispersion: string,
-      frutos: string,
-      texturaFruto: string,
-      flor: string,
-      usosConocidos: string,
-      paisajeRecomendado: string
+    // Parametros
+    nombreComun: string,
+    nombreCientifico: string,
+    origen: string,
+    minRangoAltitudinal: string,
+    maxRangoAltitudinal: string,
+    metros: string,
+    requerimientosDeLuz: string,
+    habito: string,
+    familia: string,
+    fenologia: string,
+    agentePolinizador: string,
+    metodoDispersion: string,
+    frutos: string,
+    texturaFruto: string,
+    flor: string,
+    usosConocidos: string,
+    paisajeRecomendado: string
 
-    ): Observable<boolean>{
+  ): Observable<boolean>{
 
-        // Codigo
-        const url = AppSettings.APIURL + 'agregar_planta';
+      // Codigo
+      const url = AppSettings.APIURL + 'modificar_planta';
 
-        const payload = {
-          nombreComun,
-          nombreCientifico,
-          origen,
-          minRangoAltitudinal,
-          maxRangoAltitudinal,
-          metros,
-          requerimientosDeLuz,
-          habito,
-          familia,
-          fenologia,
-          agentePolinizador,
-          metodoDispersion,
-          frutos,
-          texturaFruto,
-          flor,
-          usosConocidos,
-          paisajeRecomendado
-        };
+      const payload = {
+        nombreComun,
+        nombreCientifico,
+        origen,
+        minRangoAltitudinal,
+        maxRangoAltitudinal,
+        metros,
+        requerimientosDeLuz,
+        habito,
+        familia,
+        fenologia,
+        agentePolinizador,
+        metodoDispersion,
+        frutos,
+        texturaFruto,
+        flor,
+        usosConocidos,
+        paisajeRecomendado
+      };
 
-        console.log(payload);
+      const observable: Observable<any> = this.http.post(url, payload);
+      return observable.pipe(
 
-        const observable: Observable<any> = this.http.post(url, payload);
-        return observable.pipe(
+        map( res => (Object.values(res)[0] === true))
+      );
+  }
 
-          map( res => {
+  public eliminarPlanta(nombreComun: string): Observable<boolean>{
+    const url = AppSettings.APIURL + 'eliminar_planta';
 
-            const plantasList = res;
-            return plantasList;
+    const payload = { nombreComun };
 
-          })
-        );
-    }
+    return this.http.post(url, payload).pipe(
+      map( res => (Object.values(res)[0] === true) )
+    );
+  }
+
 }

@@ -68,7 +68,7 @@ export class ViverosDatatableComponent implements OnInit, OnDestroy {
 
         if (res){
           this.router.navigateByUrl('/listaViveros');
-          this.snackbar.open(`${nombre} eliminado exitosamente`, 'Entendido', { duration: 3000 });
+          alert(`${nombre} eliminado exitosamente`);
           location.reload();
           return;
         }else{
@@ -77,7 +77,7 @@ export class ViverosDatatableComponent implements OnInit, OnDestroy {
       });
 
     }else{
-      this.snackbar.open(`No se eliminó ${nombre}`, 'Entendido', { duration: 3000 });
+      alert(`No se eliminó ${nombre}`);
     }
   }
 

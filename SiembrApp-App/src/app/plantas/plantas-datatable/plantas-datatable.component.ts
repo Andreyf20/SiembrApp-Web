@@ -4,6 +4,7 @@ import { Subject, Subscription } from 'rxjs';
 import { Planta } from 'src/app/models/Planta';
 import { Router } from '@angular/router';
 import { DataTableDirective } from 'angular-datatables';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-plantas-datatable',
@@ -19,11 +20,14 @@ export class PlantasDatatableComponent implements OnInit, OnDestroy, AfterViewIn
   dtTrigger: Subject<any> = new Subject<any>();
 
   plantasSub: Subscription;
+  eliminateSub: Subscription;
 
   private parentURL = '/home';
+
   constructor(
     private requestService: RequestService,
-    private router: Router
+    private router: Router,
+    private snackbar: MatSnackBar
     ) { }
 
   // Cannot reinitialize datatable error fix: https://stackoverflow.com/a/49648807 
@@ -51,6 +55,7 @@ export class PlantasDatatableComponent implements OnInit, OnDestroy, AfterViewIn
   ngOnDestroy(): void{
     this.dtTrigger.unsubscribe();
     this.plantasSub.unsubscribe();
+    if (this.eliminateSub){ this.eliminateSub.unsubscribe(); }
   }
 
   rowClick(targetPlanta: Planta): void{
@@ -59,5 +64,28 @@ export class PlantasDatatableComponent implements OnInit, OnDestroy, AfterViewIn
     this.router.navigate([this.parentURL + '/detallesPlanta'], { queryParams: { ...targetPlanta }} ).then( () => {
       location.reload();
     });
+  }
+
+  eliminar(nombre: string): void{
+
+    const confirm = prompt(`¿Está seguro de eliminar el vivero ${nombre}? (Digite "${nombre}" para confirmar)`);
+
+    if (confirm === nombre){
+      // Enviar al servicio que hace requests al API
+      this.eliminateSub = this.requestService.eliminarPlanta(nombre).subscribe( res => {
+
+        if (res){
+          this.router.navigateByUrl('/listaViveros');
+          alert(`${nombre} eliminado exitosamente`);
+          location.reload();
+          return;
+        }else{
+          alert(`Ocurrió un error en la eliminación de ${nombre}`);
+        }
+      });
+
+    }else{
+      this.snackbar.open(`No se eliminó ${nombre}`, 'Entendido', { duration: 3000 });
+    }
   }
 }
