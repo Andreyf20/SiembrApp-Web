@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "nodemon ./server.js",
-    "build": "mv ./node_modules ./SiembrApp-App; cd ./SiembrApp-App; ng build",
+    "start": "node ./server.js",
+    "build": "ng build",
     "test": "cd ./SiembrApp-App ; ng test",
     "lint": "cd ./SiembrApp-App ; ng lint",
     "e2e": "cd ./SiembrApp-App ; ng e2e"
