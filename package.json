@@ -4,10 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "nodemon ./server.js",
-    "build": "pushd ./SiembrApp-App | ng build",
-    "test": "pushd ./SiembrApp-App | ng test",
-    "lint": "pushd ./SiembrApp-App | ng lint",
-    "e2e": "pushd ./SiembrApp-App | ng e2e"
+    "build": "cd ./SiembrApp-App ; ng build",
+    "test": "cd ./SiembrApp-App ; ng test",
+    "lint": "cd ./SiembrApp-App ; ng lint",
+    "e2e": "cd ./SiembrApp-App ; ng e2e"
   },
   "private": true,
   "dependencies": {
