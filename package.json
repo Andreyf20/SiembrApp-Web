@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "nodemon ./server.js",
-    "build": "ls ; mv node_modules ./SiembraApp-App; ls ; cd ./SiembrApp-App ; ng build",
+    "build": "mv ./node_modules ./SiembrApp-App; cd ./SiembrApp-App; ng build",
     "test": "cd ./SiembrApp-App ; ng test",
     "lint": "cd ./SiembrApp-App ; ng lint",
     "e2e": "cd ./SiembrApp-App ; ng e2e"
