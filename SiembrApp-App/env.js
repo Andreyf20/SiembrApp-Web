@@ -1,1 +1,0 @@
-API_URL = https://siembrapptest.herokuapp.com/api/
