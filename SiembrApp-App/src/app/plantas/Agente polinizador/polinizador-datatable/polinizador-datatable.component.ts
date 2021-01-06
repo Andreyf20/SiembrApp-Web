@@ -44,6 +44,7 @@ export class PolinizadorDatatableComponent implements OnInit, OnDestroy, AfterVi
   }
 
   ngOnDestroy(): void{
+    this.dtTrigger.unsubscribe();
     this.polinizadoresSub.unsubscribe();
   }
 

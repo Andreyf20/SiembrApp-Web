@@ -35,8 +35,14 @@ export class HomeComponent implements OnInit {
   }
 
   onTabChanged(): void{
-    console.log("Tab changed");
+    console.log('Tab changed');
     this.router.navigateByUrl('home');
+  }
+
+  logout(): void{
+    sessionStorage.removeItem('userInfo');
+    console.log('Adiós!');
+    this.router.navigateByUrl('/login');
   }
 
 }

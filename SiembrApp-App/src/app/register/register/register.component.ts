@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   tipoorganizacionVal = '';
   razonVal = '';
-  isAdmin;
+  isAdmin: boolean;
 
   opSub: Subscription;
   constructor(

@@ -44,6 +44,7 @@ export class FenologiasDatatableComponent implements OnInit, OnDestroy, AfterVie
   }
 
   ngOnDestroy(): void{
+    this.dtTrigger.unsubscribe();
     this.fenologiasSub.unsubscribe();
   }
 

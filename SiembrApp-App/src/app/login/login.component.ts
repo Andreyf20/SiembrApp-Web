@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   correoInput = '';
   loginSubscription: Subscription;
   userSub: Subscription;
+  
   constructor(
     private titleService: Title,
     private router: Router,

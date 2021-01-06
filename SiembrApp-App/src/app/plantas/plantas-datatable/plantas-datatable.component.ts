@@ -34,9 +34,8 @@ export class PlantasDatatableComponent implements OnInit, OnDestroy, AfterViewIn
   ngOnInit(): void {
 
     this.plantasSub = this.requestService.getPlantas().subscribe(res => {
-      let i = 0;
+
       res.forEach(element => {
-        console.log(i++);
         this.plantas.push(element as Planta);
       });
       this.rerender();
@@ -59,7 +58,6 @@ export class PlantasDatatableComponent implements OnInit, OnDestroy, AfterViewIn
   }
 
   rowClick(targetPlanta: Planta): void{
-    console.log(targetPlanta.nombrecomun);
 
     this.router.navigate([this.parentURL + '/detallesPlanta'], { queryParams: { ...targetPlanta }} ).then( () => {
       location.reload();

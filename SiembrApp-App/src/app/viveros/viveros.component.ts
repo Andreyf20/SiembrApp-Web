@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ViverosComponent implements OnInit{
 
-  public executing;
+  public executing: number;
   public parentURL = '/home';
   constructor(
     private router: Router

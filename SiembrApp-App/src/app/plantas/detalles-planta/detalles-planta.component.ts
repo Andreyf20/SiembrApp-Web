@@ -69,8 +69,8 @@ export class DetallesPlantaComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void{
     this.plantaInfoSub.unsubscribe();
-    this.eliminarSub.unsubscribe();
-    this.modificarSub.unsubscribe();
+    if (this.eliminarSub){ this.eliminarSub.unsubscribe(); }
+    if (this.modificarSub){ this.modificarSub.unsubscribe(); }
   }
 
   actualizarDatosVivero(): void{

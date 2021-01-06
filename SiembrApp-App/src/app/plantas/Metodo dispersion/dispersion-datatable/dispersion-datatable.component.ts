@@ -44,6 +44,7 @@ export class DispersionDatatableComponent implements OnInit, OnDestroy, AfterVie
   }
 
   ngOnDestroy(): void{
+    this.dtTrigger.unsubscribe();
     this.metodosdedispersionSub.unsubscribe();
   }
 
