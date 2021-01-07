@@ -6,7 +6,7 @@ const app = express();
 app.use(express.static("./dist/SiembrApp-App"));
 
 app.get("/*", function(req, res) {
-    res.sendFile("index.html", {root: "dist/SiembrApp-App/"}
+    res.sendFile("index.html", {root: "./dist/SiembrApp-App/"}
   );
 });
 
