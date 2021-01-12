@@ -59,6 +59,7 @@ export class PlantasDatatableComponent implements OnInit, OnDestroy, AfterViewIn
 
   rowClick(targetPlanta: Planta): void{
     // TODO: Hacer un boton para ver la imagen on command
+    
     const plantaSinImagen = {
       
       nombrecomun: targetPlanta.nombrecomun,
@@ -80,8 +81,11 @@ export class PlantasDatatableComponent implements OnInit, OnDestroy, AfterViewIn
       metros: targetPlanta.metros
 
     };
-
+    
     this.router.navigate([this.parentURL + '/detallesPlanta'], { queryParams: { ...plantaSinImagen }} ).then( () => {
+      sessionStorage.removeItem('fotoPlanta');
+      sessionStorage.setItem('fotoPlanta',targetPlanta.imagen);
+
       location.reload();
     });
   }

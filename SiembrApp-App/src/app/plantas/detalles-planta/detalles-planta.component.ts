@@ -1,8 +1,9 @@
 import { Subscription } from 'rxjs';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RequestService } from 'src/app/services/request/request.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-detalles-planta',
@@ -30,6 +31,8 @@ export class DetallesPlantaComponent implements OnInit, OnDestroy {
   maxRangoAltitudinal = '';
   metros = '';
 
+  imagen=''
+
   // Subs
   plantaInfoSub: Subscription;
   eliminarSub: Subscription;
@@ -39,10 +42,14 @@ export class DetallesPlantaComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private snackBar: MatSnackBar,
-    private requestService: RequestService
+    private requestService: RequestService,
+    private _sanitizer: DomSanitizer
     ) { }
 
   ngOnInit(): void {
+    
+    this.imagen = sessionStorage.getItem('fotoPlanta');
+    sessionStorage.removeItem(this.nombrecientifico);
 
     this.plantaInfoSub = this.route.queryParams.subscribe( params => {
 
@@ -63,7 +70,6 @@ export class DetallesPlantaComponent implements OnInit, OnDestroy {
         this.minRangoAltitudinal = params.minrangoaltitudinal;
         this.maxRangoAltitudinal = params.maxrangoaltitudinal;
         this.metros = params.metros;
-
     });
   }
 
