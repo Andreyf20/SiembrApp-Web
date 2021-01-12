@@ -354,7 +354,8 @@ export class RequestService {
     texturaFruto: string,
     flor: string,
     usosConocidos: string,
-    paisajeRecomendado: string
+    paisajeRecomendado: string,
+    //imagen: string
 
   ): Observable<boolean>{
 
@@ -378,7 +379,8 @@ export class RequestService {
         texturaFruto,
         flor,
         usosConocidos,
-        paisajeRecomendado
+        paisajeRecomendado,
+        //imagen
       };
 
       console.log(payload);
@@ -410,7 +412,8 @@ export class RequestService {
     texturaFruto: string,
     flor: string,
     usosConocidos: string,
-    paisajeRecomendado: string
+    paisajeRecomendado: string,
+    //imagen: string
 
   ): Observable<boolean>{
 
@@ -434,7 +437,8 @@ export class RequestService {
         texturaFruto,
         flor,
         usosConocidos,
-        paisajeRecomendado
+        paisajeRecomendado,
+        //imagen
       };
       console.log(payload);
       const observable: Observable<any> = this.http.post(url, payload);

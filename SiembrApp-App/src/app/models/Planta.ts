@@ -33,5 +33,6 @@ export interface Planta{
     minrangoaltitudinal: number;
     maxrangoaltitudinal: number;
     metros: number;
+    imagen: string;
 
 }
