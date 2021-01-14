@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "start": "cd ./SiembrApp-App; node ./server.js",
+    "build": "cd ./SiembrApp-App; npm install; ng build",
+    "test": "cd ./SiembrApp-App ; ng test",
+    "lint": "cd ./SiembrApp-App ; ng lint",
+    "e2e": "cd ./SiembrApp-App ; ng e2e"
   },
   "private": true,
   "dependencies": {

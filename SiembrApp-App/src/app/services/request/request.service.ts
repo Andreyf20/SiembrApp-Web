@@ -1,6 +1,6 @@
-import { Fenologia, MetodoDispersion, AgentePolinizador, Familia } from './../../models/Planta';
+import { Fenologia, MetodoDispersion, AgentePolinizador, Familia } from 'src/app/models/Planta';
 import { Injectable } from '@angular/core';
-import { AppSettings } from '../../appSettings';
+import { AppSettings } from 'src/app/AppSettings';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -354,7 +354,8 @@ export class RequestService {
     texturaFruto: string,
     flor: string,
     usosConocidos: string,
-    paisajeRecomendado: string
+    paisajeRecomendado: string,
+    imagen: string
 
   ): Observable<boolean>{
 
@@ -378,7 +379,8 @@ export class RequestService {
         texturaFruto,
         flor,
         usosConocidos,
-        paisajeRecomendado
+        paisajeRecomendado,
+        imagen
       };
 
       console.log(payload);
@@ -410,7 +412,8 @@ export class RequestService {
     texturaFruto: string,
     flor: string,
     usosConocidos: string,
-    paisajeRecomendado: string
+    paisajeRecomendado: string,
+    //imagen: string
 
   ): Observable<boolean>{
 
@@ -434,7 +437,8 @@ export class RequestService {
         texturaFruto,
         flor,
         usosConocidos,
-        paisajeRecomendado
+        paisajeRecomendado,
+        //imagen
       };
       console.log(payload);
       const observable: Observable<any> = this.http.post(url, payload);

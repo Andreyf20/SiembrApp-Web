@@ -58,8 +58,34 @@ export class PlantasDatatableComponent implements OnInit, OnDestroy, AfterViewIn
   }
 
   rowClick(targetPlanta: Planta): void{
+    // TODO: Hacer un boton para ver la imagen on command
+    
+    const plantaSinImagen = {
+      
+      nombrecomun: targetPlanta.nombrecomun,
+      nombrecientifico: targetPlanta.nombrecientifico,
+      familia: targetPlanta.familia,
+      origen: targetPlanta.origen,
+      fenologia: targetPlanta.fenologia,
+      polinizador: targetPlanta.polinizador,
+      requerimientosdeluz: targetPlanta.requerimientosdeluz,
+      metododispersion: targetPlanta.metododispersion,
+      frutos: targetPlanta.frutos,
+      texturafruto: targetPlanta.texturafruto,
+      flor: targetPlanta.flor,
+      paisajerecomendado: targetPlanta.paisajerecomendado,
+      habito: targetPlanta.habito,
+      usosconocidos: targetPlanta.usosconocidos,
+      minrangoaltitudinal: targetPlanta.minrangoaltitudinal,
+      maxrangoaltitudinal: targetPlanta.maxrangoaltitudinal,
+      metros: targetPlanta.metros
 
-    this.router.navigate([this.parentURL + '/detallesPlanta'], { queryParams: { ...targetPlanta }} ).then( () => {
+    };
+    
+    this.router.navigate([this.parentURL + '/detallesPlanta'], { queryParams: { ...plantaSinImagen }} ).then( () => {
+      sessionStorage.removeItem('fotoPlanta');
+      sessionStorage.setItem('fotoPlanta',targetPlanta.imagen);
+
       location.reload();
     });
   }
