@@ -108,8 +108,8 @@
         </form>
     </mat-step>
 
-     <!-- Step 4 -->
-     <mat-step [stepControl]="fourthFormGroup" editable>
+    <!-- Step 4 -->
+    <mat-step [stepControl]="fourthFormGroup" editable>
         <form [formGroup]="fourthFormGroup">
             <ng-template matStepLabel>Información 4</ng-template>
             <mat-form-field>
@@ -138,6 +138,22 @@
             </mat-form-field>
             <div>
                 <button mat-button matStepperNext >Siguiente</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <!-- Step 4 -->
+    <mat-step [stepControl]="fifthFormGroup" editable>
+        <form [formGroup]="fifthFormGroup">
+            <ng-template matStepLabel>Imagen</ng-template>
+            
+            <mat-label>Imagen</mat-label>
+            <br/>
+            <input type="file" accept="image/png, image/jpeg" (change)="onFileSelected($event)" required>
+            <br/>
+            <img id="previewTag" src="" alt="No hay imagen seleccionada">
+            <div>
+                <button mat-button matStepperNext [disabled] = "nextDisabled" >Siguiente</button>
             </div>
         </form>
     </mat-step>

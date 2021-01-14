@@ -355,7 +355,7 @@ export class RequestService {
     flor: string,
     usosConocidos: string,
     paisajeRecomendado: string,
-    //imagen: string
+    imagen: string
 
   ): Observable<boolean>{
 
@@ -380,7 +380,7 @@ export class RequestService {
         flor,
         usosConocidos,
         paisajeRecomendado,
-        //imagen
+        imagen
       };
 
       console.log(payload);

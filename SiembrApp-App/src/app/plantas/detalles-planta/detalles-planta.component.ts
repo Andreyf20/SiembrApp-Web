@@ -11,7 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./detalles-planta.component.scss']
 })
 export class DetallesPlantaComponent implements OnInit, OnDestroy {
-
+  // TODO: Falta mostrar flor
   // Atributos de Planta
   nombrecomun = '';
   nombrecientifico = '';
