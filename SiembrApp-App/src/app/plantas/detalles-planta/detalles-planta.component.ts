@@ -42,8 +42,7 @@ export class DetallesPlantaComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private snackBar: MatSnackBar,
-    private requestService: RequestService,
-    private _sanitizer: DomSanitizer
+    private requestService: RequestService
     ) { }
 
   ngOnInit(): void {
@@ -106,13 +105,13 @@ export class DetallesPlantaComponent implements OnInit, OnDestroy {
         this.texturaFruto,
         this.flor,
         this.usosConocidos,
-        this.paisajerecomendado
+        this.paisajerecomendado,
+        this.imagen
 
       ).subscribe( res => {
-        console.log(res);
+        //console.log(res);
         if (res){
           this.snackBar.open('Se han modificado los datos del vivero con éxito', 'Entendido', { duration: 5000, });
-          this.router.navigateByUrl('/');
           return;
         }else{
           this.snackBar.open('Ocurrió un error', 'Entendido', { duration: 5000, });

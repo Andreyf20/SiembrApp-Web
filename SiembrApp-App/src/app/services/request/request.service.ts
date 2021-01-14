@@ -388,7 +388,8 @@ export class RequestService {
       const observable: Observable<any> = this.http.post(url, payload);
       return observable.pipe(
 
-        map( res => (Object.values(res)[0] === true))
+        map( res => (Object.values(res)[0] === '1'))
+
       );
   }
 
@@ -413,7 +414,7 @@ export class RequestService {
     flor: string,
     usosConocidos: string,
     paisajeRecomendado: string,
-    //imagen: string
+    imagen: string
 
   ): Observable<boolean>{
 
@@ -438,7 +439,7 @@ export class RequestService {
         flor,
         usosConocidos,
         paisajeRecomendado,
-        //imagen
+        imagen
       };
       console.log(payload);
       const observable: Observable<any> = this.http.post(url, payload);
