@@ -11,7 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./detalles-planta.component.scss']
 })
 export class DetallesPlantaComponent implements OnInit, OnDestroy {
-  
+
   // Atributos de Planta
   nombrecomun = '';
   nombrecientifico = '';
@@ -31,7 +31,7 @@ export class DetallesPlantaComponent implements OnInit, OnDestroy {
   maxRangoAltitudinal = '';
   metros = '';
 
-  imagen=''
+  imagen = '';
 
   // Subs
   plantaInfoSub: Subscription;
@@ -40,13 +40,12 @@ export class DetallesPlantaComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private snackBar: MatSnackBar,
     private requestService: RequestService
     ) { }
 
   ngOnInit(): void {
-    
+
     this.imagen = sessionStorage.getItem('fotoPlanta');
     sessionStorage.removeItem(this.nombrecientifico);
 
@@ -109,7 +108,7 @@ export class DetallesPlantaComponent implements OnInit, OnDestroy {
         this.imagen
 
       ).subscribe( res => {
-        //console.log(res);
+        // console.log(res);
         if (res){
           this.snackBar.open('Se han modificado los datos del vivero con éxito', 'Entendido', { duration: 5000, });
           return;
