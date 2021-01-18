@@ -196,7 +196,6 @@ export class RequestService {
     );
   }
 
-
   public crearFamilia(nombre: string): Observable<boolean>{
 
     const url = AppSettings.APIURL + 'agregar_familia';
@@ -280,7 +279,6 @@ export class RequestService {
         res => (Object.values(res)[0] === '1')
      ));
   }
-
 
   // Agente polinizador
   public getAgentesPolinizadores(): Observable<AgentePolinizador[]> {

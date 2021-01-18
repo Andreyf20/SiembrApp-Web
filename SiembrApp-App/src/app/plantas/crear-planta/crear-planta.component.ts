@@ -12,7 +12,7 @@ import { RequestService } from '../../services/request/request.service';
   styleUrls: ['./crear-planta.component.scss']
 })
 export class CrearPlantaComponent implements OnInit, OnDestroy {
-  
+
   // nextButton
   nextDisabled = false;
 
@@ -93,7 +93,7 @@ export class CrearPlantaComponent implements OnInit, OnDestroy {
       });
 
       this.fifthFormGroup = this.formBuilder.group({
-        //Imagen
+        // Imagen
       });
 
     }
@@ -122,55 +122,55 @@ export class CrearPlantaComponent implements OnInit, OnDestroy {
 
   }
   // Filter by extension: https://stackoverflow.com/a/54232158
-  // 
+
   onFileSelected(event): void{
-  
+
     const file = event.target.files[0];
 
     // Get extension
     // Ref: https://stackoverflow.com/a/680982
 
-    if(!file){
+    if (!file){
       return;
     }
 
-    const acceptedExtensions = ['.png', '.jpeg','.jpg'];
+    const acceptedExtensions = ['.png', '.jpeg', '.jpg'];
     const re = /(?:\.([^.]+))?$/;
 
     const extension = re.exec(file.name)[0];
 
-    if( (acceptedExtensions.includes(extension)) === false){
+    if ( (acceptedExtensions.includes(extension)) === false){
       this.nextDisabled = true;
-      alert("Tipo de archivo no compatible.");
+      alert('Tipo de archivo no compatible.');
       return;
     }
 
     // Revisar tamaño, máximo de 500 x 500
-    const fileSizeLimit  = 500*500;
-    if(file.size > fileSizeLimit){
+    const fileSizeLimit  = 500 * 500;
+    if (file.size > fileSizeLimit){
       this.nextDisabled = true;
-      alert("Archivo es muy grande. (Máximo imágenes de 256x256)");
+      alert('Archivo es muy grande. (Máximo imágenes de 256x256)');
       return;
     }
 
     this.nextDisabled = false;
-    if(file !== null){
+    if (file !== null){
 
       // Transformar imagen a base64string
       const reader = new FileReader();
 
-      reader.addEventListener("load", () => {
+      reader.addEventListener('load', () => {
         // Convertir imagen a base 64
 
         // Ref: https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
         // Cast to string Ref: https://stackoverflow.com/a/55955490
-        
-        this.base64Image = (<string> reader.result).split(';base64,')[1];
-        
+
+        this.base64Image = (reader.result as string).split(';base64,')[1];
+
         // Programatically set attribute to tag >> Ref: https://stackoverflow.com/a/43423559
         const previewTag = document.getElementById('previewTag');
 
-        previewTag.setAttribute('src',(<string> reader.result));
+        previewTag.setAttribute('src', (reader.result as string));
         console.log(this.base64Image);
 
       }, false);
@@ -185,7 +185,7 @@ export class CrearPlantaComponent implements OnInit, OnDestroy {
     const nombreCientifico = this.firstFormGroup.get('nombreCientifico').value;
 
     // Imagen
-    if(this.base64Image === null || this.base64Image.length === 0){
+    if (this.base64Image === null || this.base64Image.length === 0){
       this.base64Image = AppSettings.FALLBACKPLANTAIMG;
     }
     console.log(this.base64Image);
