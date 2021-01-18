@@ -77,9 +77,9 @@ export class DetallesPlantaComponent implements OnInit, OnDestroy {
     if (this.modificarSub){ this.modificarSub.unsubscribe(); }
   }
 
-  actualizarDatosVivero(): void{
+  actualizarDatosArbol(): void{
 
-    const confirm = prompt('¿Está seguro de actualizar los datos del vivero? (Escriba "si" para confirmar)');
+    const confirm = prompt('¿Está seguro de actualizar los datos del árbol? (Escriba "si" para confirmar)');
 
     if (confirm === 'si'){
 
@@ -110,7 +110,7 @@ export class DetallesPlantaComponent implements OnInit, OnDestroy {
       ).subscribe( res => {
         // console.log(res);
         if (res){
-          this.snackBar.open('Se han modificado los datos del vivero con éxito', 'Entendido', { duration: 5000, });
+          this.snackBar.open('Se han modificado los datos del árbol con éxito', 'Entendido', { duration: 5000, });
           return;
         }else{
           this.snackBar.open('Ocurrió un error', 'Entendido', { duration: 5000, });
