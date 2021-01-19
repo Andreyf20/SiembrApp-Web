@@ -16,7 +16,7 @@ export class ViverosDatatableComponent implements OnInit, OnDestroy {
   private parentURL = '/home';
   private getSub: Subscription;
   private eliminateSub: Subscription;
-  
+
   dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(
