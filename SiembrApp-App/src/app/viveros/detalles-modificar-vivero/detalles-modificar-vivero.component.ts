@@ -65,7 +65,6 @@ export class DetallesModificarViveroComponent implements OnInit, OnDestroy {
 
       if (res){
         this.snackBar.open('Se han modificado los datos del vivero con éxito', 'Entendido', { duration: 5000, });
-        this.router.navigateByUrl('/');
         return;
       }else{
         this.snackBar.open('Ocurrió un error', 'Entendido', { duration: 5000, });

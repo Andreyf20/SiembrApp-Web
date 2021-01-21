@@ -44,7 +44,7 @@ export class CrearFenologiaComponent implements OnInit, OnDestroy {
       }else{
         alert('Ocurrió un error o la fenología ya existe');
       }
-      return this.router.navigateByUrl('home/listaAgentesPolinizadores').then(() => { location.reload(); });
+      return this.router.navigateByUrl('home/listaFenologias').then(() => { location.reload(); });
 
     });
   }

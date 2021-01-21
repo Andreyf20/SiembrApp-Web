@@ -86,7 +86,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
         }else{
           alert(`Error al crear usuario: ${correoGot}`);
         }
-        this.router.navigateByUrl('home/listaViveros').then( () => location.reload());
+        this.router.navigateByUrl('home/listaPlantas').then( () => location.reload());
 
       });
     }else{

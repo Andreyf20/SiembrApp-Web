@@ -98,7 +98,7 @@ export class PlantasDatatableComponent implements OnInit, OnDestroy, AfterViewIn
       this.eliminateSub = this.requestService.eliminarPlanta(nombre).subscribe( res => {
 
         if (res){
-          this.router.navigateByUrl('/listaViveros');
+          this.router.navigateByUrl('/listaPlantas');
           alert(`${nombre} eliminado exitosamente`);
           location.reload();
           return;
