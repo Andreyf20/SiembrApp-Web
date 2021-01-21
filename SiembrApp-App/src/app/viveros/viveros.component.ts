@@ -24,7 +24,6 @@ export class ViverosComponent implements OnInit{
   }
 
   crearViveroClick(newVal: number): void{
-    this.executing = newVal;
     this.router.navigateByUrl(this.parentURL + '/crearVivero');
   }
 
