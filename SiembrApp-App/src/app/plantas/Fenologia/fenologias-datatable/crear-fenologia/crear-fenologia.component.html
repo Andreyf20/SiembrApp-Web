@@ -1,0 +1,25 @@
+<mat-horizontal-stepper linear #stepper>
+    
+    <!-- Step 1 -->
+    <mat-step [stepControl]="firstFormGroup" editable>
+        <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Nombre del nuevo agente polinizador</ng-template>
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombre" required>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperNext>Siguiente</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <!-- Fin -->
+    <mat-step>
+        <ng-template matStepLabel>Listo</ng-template>
+        <div>
+          <button mat-button matStepperPrevious>Atrás</button>
+          <button class="submitBtn" type="submit" mat-button (click)="submit()">Terminar</button>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>

@@ -1,0 +1,35 @@
+@import '/src/styles';
+
+@function
+color($color){
+    @return map-get($mat-primary,$color)
+}
+
+$width : 80%;
+
+header{
+    
+    background-color: color(main);
+    min-height: 60px;
+    height: 100%;
+
+    .anchor{
+
+        width: 60px;
+        height: 100%;
+        float: right;
+        margin: auto;
+
+        .btn-icon{
+            
+            min-height: 60px;
+            text-align: center;
+            fill: white;
+        }
+    
+    }
+}
+
+p{
+    height: 100%;
+}

@@ -1,0 +1,49 @@
+@import '/src/styles';
+
+@function
+color($color){
+    @return map-get($mat-primary,$color);
+}
+
+.detallesDiv{
+    padding: 1%;
+    min-height: 300px;
+
+    .detallesPlantaField{
+
+        width: 95%;
+        min-height: 25%;
+        font-size: 18px;
+        
+        .matLabel{
+    
+            height: 3%;
+            min-height: 20px;
+            padding: 0%;
+            display: block;
+    
+        }
+
+        .inputField{
+            padding: 0%;
+            font-size: 18px;
+            min-height: 50px;
+        }
+
+    }
+
+    .modificarBtn{
+
+        width: 100%;
+        
+        background-color: map-get($mat-accent,main);
+        color: white;
+
+        display: block;
+    }
+
+    h1{
+        color: color(main)
+    }
+
+}

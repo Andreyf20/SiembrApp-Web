@@ -1,0 +1,60 @@
+@import '/src/styles';
+
+@function
+color($color){
+    @return map-get($mat-primary,$color);
+}
+
+.buttonsDiv{
+
+    .expansionPanel{
+
+        background-color: white;
+        
+        .choiceBtn{
+        
+            margin: 0.5%;
+            background-color: color(lighter);
+            display: inline-block;
+            
+        }
+    
+        .cancelBtn{
+    
+            margin: 1%;
+            background-color: color(lighter);
+            display: inline-block;
+            background-color: map-get($mat-warn,main);
+            color: white;
+        }
+
+        mat-expansion-panel-header{
+            color: color(main);
+        }
+
+    }
+    
+
+}
+
+.tableContainer{
+
+    margin: 1%;
+    width: 98%;
+    height: 100%;
+
+}
+
+.detallesBtn{
+
+    color: map-get($theme-accent,main);
+    border-radius: 0%;
+
+}
+
+tr{
+
+     :hover{
+        cursor: pointer;
+    }
+}

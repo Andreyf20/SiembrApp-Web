@@ -1,0 +1,14 @@
+<div>
+  <table datatable [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+        <tr style="text-align: left">
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let familia of familias">
+          <td>{{familia.nombre}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

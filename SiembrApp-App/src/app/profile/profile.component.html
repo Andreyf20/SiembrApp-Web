@@ -1,0 +1,42 @@
+<header>
+
+    <!-- https://www.flaticon.com/svg/static/icons/svg/3580/3580187.svg -->
+    <!-- Icon made by https://www.flaticon.com/authors/mavadee -->
+
+    <!-- https://www.flaticon.com/free-icon/user_1946429?term=profile&page=1&position=15&related_item_id=1946429 -->
+    <!-- Icon made by https://www.flaticon.com/authors/freepik -->
+
+    <!-- https://www.flaticon.com/free-icon/left-arrow_860790?term=back&page=1&position=8&related_item_id=860790 -->
+    <!-- Icon made by https://www.flaticon.es/autores/becris -->
+
+    <a mat-button class="anchorBack" routerLink="/home">
+        <mat-icon svgIcon="back" class="btn-icon"></mat-icon>
+    </a>
+
+    <a mat-button class="anchor" routerLink="/login">
+        <mat-icon svgIcon="logout" class="btn-icon"></mat-icon>
+    </a>
+
+</header>
+
+<div class="card">
+
+    <label class="title">Perfil</label>
+    
+    <label class="lbl">Nombre</label>
+
+    <label class="val">{{user.nombre}}</label>
+
+    <label class="lbl">E-mail</label>
+
+    <label class="val">{{user.correo}}</label>
+
+    <label class="lbl">Tipo de organización</label>
+
+    <label class="val">{{user.nombretipoorganizacion}}</label>
+
+    <label class="lbl">Razón</label>
+
+    <label class="val">{{user.razon}}</label>
+
+</div>

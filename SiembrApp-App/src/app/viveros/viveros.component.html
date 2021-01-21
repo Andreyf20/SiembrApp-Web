@@ -1,0 +1,11 @@
+<div class="buttonsDiv">
+
+    <button mat-button class="viverosBtn" [disabled]="executing != 0 && executing != -1" (click) = "verViverosClick()"> Ver viveros </button>
+
+    <button mat-button class="viverosBtn" [disabled]="executing != 1 && executing != -1" (click) = "crearViveroClick(1)"> Agregar viveros </button>
+
+    <button mat-button class="cancelBtn" *ngIf="executing != -1" (click) = "back()"> Cancelar </button>
+
+</div>
+
+<router-outlet></router-outlet>

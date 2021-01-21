@@ -1,0 +1,102 @@
+<mat-horizontal-stepper linear #stepper>
+    
+    <!-- Step 1 -->
+    <mat-step [stepControl]="firstFormGroup" editable>
+        <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Información general</ng-template>
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombre" required>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Apellidos</mat-label>
+                <input matInput formControlName="apellidos" required>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Correo</mat-label>
+                <input matInput formControlName="correo" required email>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Contraseña</mat-label>
+                <input matInput formControlName="contrasenna" [type]="'password'" required>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Verificar contraseña</mat-label>
+                <input matInput formControlName="verificacion" [type]="'password'" required>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperNext>Siguiente</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <!-- Step 2 -->
+    <mat-step [stepControl]="secondFormGroup" editable>
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Motivo de usar el servicio</ng-template>
+
+          <!-- Mat toggle get selected value: https://stackoverflow.com/a/49517806 -->
+          <mat-button-toggle-group #razon="matButtonToggleGroup" class="optionGroup" [value]="razon" (change)="setRazon(razon.value)">
+
+            <mat-button-toggle mat-button class="optionBtn" value="Trabajo">Trabajo</mat-button-toggle>
+            <br/>
+            <mat-button-toggle mat-button class="optionBtn" value="Campaña de reforestación">Campaña de reforestación</mat-button-toggle>
+            <br/>
+            <mat-button-toggle mat-button class="optionBtn" value="Otro">Otro</mat-button-toggle>
+
+          </mat-button-toggle-group>
+
+          <div>
+            <button mat-button matStepperPrevious>Atrás</button>
+            <button mat-button matStepperNext [disabled]="razonVal === ''">Siguiente</button>
+          </div>
+        </form>
+      </mat-step>
+    
+    <!-- Step 3-->
+    <mat-step [stepControl]="thirdFormGroup" editable>
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>Tipo de organización</ng-template>
+          
+          <mat-button-toggle-group #tipoorganizacion="matButtonToggleGroup" class="optionGroup" [value]="tipoorganizacion" (change)="setTipoorganizacion(tipoorganizacion.value)">
+
+            <mat-button-toggle mat-button class="optionBtn" value="Asada">Asada</mat-button-toggle>
+            <br/>
+            <mat-button-toggle mat-button class="optionBtn" value="Estado">Estado</mat-button-toggle>
+            <br/>
+            <mat-button-toggle mat-button class="optionBtn" value="Gobierno local">Gobierno local</mat-button-toggle>
+            <br/>
+            <mat-button-toggle mat-button class="optionBtn" value="ONG">ONG</mat-button-toggle>
+            <br/>
+            <mat-button-toggle mat-button class="optionBtn" value="Otro">Otro</mat-button-toggle>
+          </mat-button-toggle-group>
+
+          <div>
+            <button mat-button matStepperPrevious>Atrás</button>
+            <button mat-button matStepperNext [disabled]="tipoorganizacionVal === ''">Siguiente</button>
+          </div>
+        </form>
+      </mat-step>
+
+    <!-- Fin -->
+    <mat-step>
+        <ng-template matStepLabel>Listo</ng-template>
+        <p>¿Este usuario es administrador?</p>
+        <mat-button-toggle-group #admin="matButtonToggleGroup" class="optionGroup" [value]="isAdmin" (change)="setIsAdmin(admin.value)">
+
+          <mat-button-toggle mat-button class="optionBtn" value=1>Sí</mat-button-toggle>
+          <br/>
+          <mat-button-toggle mat-button class="optionBtn" value=0>No</mat-button-toggle>
+          
+        </mat-button-toggle-group>
+        <p>Recuerde verificar que la información es la correcta antes de terminar.</p>
+        <div>
+          <button mat-button matStepperPrevious>Atrás</button>
+          <button class="submitBtn" type="submit" mat-button (click)="submit()">Registrar usuario</button>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>

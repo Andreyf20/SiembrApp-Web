@@ -1,0 +1,61 @@
+<mat-horizontal-stepper linear #stepper>
+    
+    <!-- Step 1 -->
+    <mat-step [stepControl]="firstFormGroup" editable>
+        <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Nombre y dirección del vivero</ng-template>
+            <mat-form-field>
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombre" required>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+                <mat-label>Direccion</mat-label>
+                <textarea matInput formControlName="direccion" required></textarea>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperNext>Siguiente</button>
+            </div>
+        </form>
+    </mat-step>
+
+    <!-- Step 2 -->
+    <mat-step [stepControl]="secondFormGroup" editable>
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Teléfonos</ng-template>
+          <mat-form-field>
+            <mat-label>Teléfonos</mat-label>
+            <textarea  matInput formControlName="telefonos" placeholder="1234 5678"></textarea>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Atrás</button>
+            <button mat-button matStepperNext>Siguiente</button>
+          </div>
+        </form>
+      </mat-step>
+    
+    <!-- Step 3-->
+    <mat-step [stepControl]="thirdFormGroup" editable>
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>Horarios</ng-template>
+          <mat-form-field>
+            <mat-label>Horarios</mat-label>
+            <textarea  matInput formControlName="horarios" placeholder="8:00 - 15:30 (Lunes - Viernes)
+            9:00 - 16:30 (Sábados y domingos)"></textarea>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Atrás</button>
+            <button mat-button matStepperNext>Siguiente</button>
+          </div>
+        </form>
+      </mat-step>
+
+    <!-- Fin -->
+    <mat-step>
+        <ng-template matStepLabel>Listo</ng-template>
+        <div>
+          <button mat-button matStepperPrevious>Atrás</button>
+          <button class="submitBtn" type="submit" mat-button (click)="submit()">Terminar</button>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>
