@@ -41,7 +41,7 @@ export class CrearMetodoDispersionComponent implements OnInit, OnDestroy {
     this.subscription = this.requestService.crearMetodoDispersion(
       nombre
     ).subscribe( res => {
-      console.log(res);
+      // console.log(res);
       if (res){
         this.snackBar.open('Se ha creado el método de dispersión con éxito', 'Entendido', { duration: 2000, });
 
